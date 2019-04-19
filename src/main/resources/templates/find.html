@@ -1,0 +1,38 @@
+ <!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/layout :: head(text='Find')"></head>
+    <body>
+        
+        <header th:replace="fragments/layout :: header"></header>
+
+<!--        
+        <h1>My friends:</h1>
+
+        <ul>
+            <li th:each="friend: ${friends}">
+                <span th:text="${friend.name + friend.lastName}"></span>
+            </li>
+        </ul>
+        
+        <h1>Other users:</h1>
+
+        <ul>
+            <li th:each="otherUser: ${otherUsers}">
+                <span th:text="${otherUser.name + otherUser.lastName}"></span>
+            </li>
+        </ul>
+        -->
+                
+        <div>
+            <h3>Find a user</h3>
+
+        <form method="POST" th:action="@{/find}"> 
+            <input type="text" name="name" id="name" placeholder="name"/> 
+            <input type="submit" value="Find!" />
+        </form>
+        </div>
+        
+        
+         
+    </body>
+</html>

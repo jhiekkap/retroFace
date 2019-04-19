@@ -1,0 +1,64 @@
+ <!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/layout :: head(text='Home')"></head>
+    
+    <body>
+        <div class="box"> 
+        <header th:replace="fragments/layout :: header"></header>
+        <p>MY PROFILE PHOTO</p>
+        
+       <!--<img th:src="@{/photos/{id}/content(id=${1})}"/>-->
+       <!--TÄHÄN PROFIILIKUVAA-->
+       <img th:src="@{/photos/1/content}"/> 
+        
+        
+        <!--<img th:src="@{profilePic.jpg}" alt="profile pic"/>-->
+        
+        <p th:text="${user.name}" >My name</p>
+        
+        
+        <br/>
+        <h1>My friends:</h1>
+
+        <ul>
+            <li th:each="friend: ${friends}">
+                <span th:text="${friend.name + friend.lastName}"></span>
+            </li>
+        </ul>
+        
+        <h1>Friend requests:</h1>
+
+        <ul>
+            <li th:each="request: ${friendRequests}">
+                <span th:text="${request.name + request.date}"></span>
+            </li>
+        </ul> 
+<!--        <a th:href="@{/photos}">photos</a>-->
+         
+        <h1> WALL -------------- MESSAGES: </h1>
+        
+        <ul>
+            <li th:each="message: ${messages}">
+                <p th:text="${message.name}"></p>
+                <p th:text="${message.content}"></p>
+                <ul>
+                    <li th:each="comment: ${comments}">
+                        <p th:text="${comment.name}"></p>
+                        <p th:text="${comment.content}"></p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+        <ul>
+            <li th:each="comment: ${comments}">
+                <p th:text="${comment.name + comment.lastName}"></p>
+                <p th:text="${comment.content}"></p> 
+            </li> 
+        </ul>
+        <p>Comment text field</p>
+        <p>Submit comment</p>
+         
+        </div>
+    </body>
+</html>

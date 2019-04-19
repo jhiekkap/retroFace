@@ -1,0 +1,20 @@
+body {
+  background-color: lightblue;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+h1 {
+  color: white;
+ 
+   padding: 10px;
+}
+p {
+    padding: 10px;
+    
+}
+.photos {
+    display: inline;
+    border-style: solid;
+    color:red;
+}

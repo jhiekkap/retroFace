@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/layout :: head(text='Photos')"></head>
+    <body>
+        
+        <header th:replace="fragments/layout :: header"></header>
+        
+        <h1>My pics:</h1>
+        
+        <div th:if="${photos.empty}">
+            <span>No photos</span>
+        </div>
+
+<!--        <ol>
+            <li th:each="photo: ${photos}">
+                <img th:src="@{/photos/{id}/content(id=${photo.id})}"/>
+                <p th:text="${photo.title}"></p> 
+                <a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>
+                <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="delete"><input type="submit" value="Delete"/></form>
+                <p>Select as a profile pic</p>
+                <p>Like Button</p>
+                <ul>
+            <li th:each="comment: ${comments}">
+                <p th:text="${comment.name}"></p>
+                <p th:text="${comment.content}"></p> 
+            </li> 
+                </ul>
+                    <p>Comment text field</p>
+                    <p>Submit comment</p>
+            </li>
+        </ol>-->
+        <p>black text</p>
+        <div class="photos">
+            <p>text</p>
+            <div th:each="photo: ${photos}">
+                <img th:src="@{/photos/{id}/content(id=${photo.id})}"/>
+                <p th:text="${photo.title}"></p> 
+                <!--<a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>-->
+                <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="delete"><input type="submit" value="Delete"/></form>
+                <p>Select as a profile pic</p>
+                <p>Like Button</p>
+                <ul>
+            <li th:each="comment: ${comments}">
+                <p th:text="${comment.name}"></p>
+                <p th:text="${comment.content}"></p> 
+            </li> 
+                </ul>
+                    <p>Comment text field</p>
+                    <p>Submit comment</p>
+            </div>
+        </div>
+        
+        
+        <div th:if="${count < 10}"> 
+            <a th:href="@{/addPhoto}">Add more photos:</a> 
+         </div>
+        
+
+
+    </body>
+</html>
