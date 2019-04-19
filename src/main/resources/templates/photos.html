@@ -52,7 +52,13 @@
         
         
         <div th:if="${count < 10}"> 
-            <a th:href="@{/addPhoto}">Add more photos:</a> 
+            <p>Add more photos:</p> 
+            <form method="POST" action="/photos" enctype="multipart/form-data">
+            <input type="file" name="file" id="file"/>
+            <input type="text" id="title" name="title" placeholder="title" > 
+            <!--<input type="text" name="description" id="description"/>-->
+            <input type="submit" value="Add!"/>
+            </form>
          </div>
         
 

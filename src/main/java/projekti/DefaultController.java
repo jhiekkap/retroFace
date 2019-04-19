@@ -29,13 +29,17 @@ public class DefaultController {
      
     
     @GetMapping("/")
+    public String root() { 
+        return "redirect:/index"; 
+    }
+    
+    @GetMapping("/index")
     public String index() { 
         return "index"; 
     }
     
     @GetMapping("/logout")
-    public String logout() {
-   
+    public String logout() { 
         return "index"; 
     }
      
@@ -46,27 +50,18 @@ public class DefaultController {
         model.addAttribute("count", photoRepository.count());
         return "photos";
     }
-    
-    @GetMapping("/addPhoto")
-    public String addPhoto (Model model){
-         
-        return "addPhoto";
-    }
-    
+     
     @GetMapping(path = "/photos/{id}/content", produces = "image/jpg")
     @ResponseBody
     public byte[] get(@PathVariable long id) {
          
         return photoRepository.getOne(id).getContent();
     }
-    
-    
+     
     @PostMapping("/photos")
     public String save(@RequestParam("file") MultipartFile file,
             @RequestParam("title") String title) throws IOException {
-//     @PostMapping("/photos")   
-//     public String save(@RequestParam("file") MultipartFile file) throws IOException {
-        
+ 
         PhotoObject fo = new PhotoObject();
 
         fo.setName(file.getOriginalFilename());

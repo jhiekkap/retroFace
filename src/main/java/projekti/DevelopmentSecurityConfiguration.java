@@ -43,8 +43,9 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
                 .antMatchers(HttpMethod.GET, "/").permitAll() 
                 .antMatchers(HttpMethod.GET, "/users/**").permitAll()
                 .antMatchers("/signUp").permitAll()
-                .antMatchers("/find").permitAll()  
-//        .antMatchers("/home").hasAnyAuthority("ADMIN","USER")
+                .antMatchers("/find").permitAll()
+                .antMatchers("/index").permitAll() 
+//        .antMatchers("/user").hasAnyAuthority("ADMIN","USER")
 //        .antMatchers("/photos").hasAnyAuthority("ADMIN","USER")
                 .anyRequest().authenticated();
         http.formLogin()
