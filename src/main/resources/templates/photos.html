@@ -10,32 +10,15 @@
         <div th:if="${photos.empty}">
             <span>No photos</span>
         </div>
-
-<!--        <ol>
-            <li th:each="photo: ${photos}">
-                <img th:src="@{/photos/{id}/content(id=${photo.id})}"/>
-                <p th:text="${photo.title}"></p> 
-                <a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>
-                <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="delete"><input type="submit" value="Delete"/></form>
-                <p>Select as a profile pic</p>
-                <p>Like Button</p>
-                <ul>
-            <li th:each="comment: ${comments}">
-                <p th:text="${comment.name}"></p>
-                <p th:text="${comment.content}"></p> 
-            </li> 
-                </ul>
-                    <p>Comment text field</p>
-                    <p>Submit comment</p>
-            </li>
-        </ol>-->
+ 
         <p>black text</p>
         <div class="photos">
             <p>text</p>
             <div th:each="photo: ${photos}">
                 <img th:src="@{/photos/{id}/content(id=${photo.id})}"/>
+                <img th:src="@{users/{profile}/photos/{id}/content(id=${photo.id})}"/>
                 <p th:text="${photo.title}"></p> 
-                <!--<a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>-->
+                <a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>
                 <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="delete"><input type="submit" value="Delete"/></form>
                 <p>Select as a profile pic</p>
                 <p>Like Button</p>
@@ -53,10 +36,10 @@
         
         <div th:if="${count < 10}"> 
             <p>Add more photos:</p> 
-            <form method="POST" action="/photos" enctype="multipart/form-data">
+<!--            <form method="POST" action="/photos" enctype="multipart/form-data">-->
+            <form method="POST" action="@{/users/{profile}/photos(profile=${user.profile})}" enctype="multipart/form-data">
             <input type="file" name="file" id="file"/>
-            <input type="text" id="title" name="title" placeholder="title" > 
-            <!--<input type="text" name="description" id="description"/>-->
+            <input type="text" id="title" name="title" placeholder="title" >  
             <input type="submit" value="Add!"/>
             </form>
          </div>

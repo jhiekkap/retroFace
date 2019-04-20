@@ -18,12 +18,11 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class PhotoObject extends AbstractPersistable<Long> {
     
     private String name; 
-//    private Account owner;
     private String contentType;
     private Long contentLength;
     private String title;
     
-//    private List<Person> likes = new ArrayList<>();
+//    private List<Account> likes = new ArrayList<>();
 //    private List<Comment> comments = new ArrayList<>();
     
     @Lob

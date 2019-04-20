@@ -1,6 +1,7 @@
 package projekti;
 
 import java.io.IOException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -44,22 +45,69 @@ public class DefaultController {
     }
      
     @GetMapping("/photos")
-    public String getAllFiles (Model model){
+    public String getAllPhotos (Model model){
         
-        model.addAttribute("photos", photoRepository.findAll()); 
-        model.addAttribute("count", photoRepository.count());
+        model.addAttribute("photos", photoRepository.findAll());  
+        return "photos";
+    }
+    
+    @GetMapping("/users/{profile}/photos")
+    public String getAllUserPhotos (Model model,
+            @PathVariable String profile){
+        
+        Account account = accountRepository.findByProfile(profile);
+        List<PhotoObject> userPhotos = account.getPhotos();
+        
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        Account  loggedUser = accountRepository.findByUsername(username);
+        model.addAttribute("loggedUser", loggedUser); 
+        model.addAttribute("user", account);
+        model.addAttribute("photos", userPhotos); 
+        model.addAttribute("count", userPhotos.size());
         return "photos";
     }
      
     @GetMapping(path = "/photos/{id}/content", produces = "image/jpg")
     @ResponseBody
-    public byte[] get(@PathVariable long id) {
+    public byte[] getFromAllPhotos(@PathVariable long id) {
          
         return photoRepository.getOne(id).getContent();
     }
-     
+    
+//    @GetMapping(path = "users/{profile}/photos/{id}/content", produces = "image/jpg")
+//    @ResponseBody
+//    public byte[] getFromUserPhotos(@PathVariable String profile, @PathVariable long id) {
+//        
+//        Account account = accountRepository.findByProfile(profile);
+//        List<PhotoObject> userPhotos = account.getPhotos();
+//        
+//        return photoRepository.getOne(id).getContent();
+//    }
+    
+    @PostMapping("users/{profile}/photos")
+     public String saveUserPhoto(@RequestParam("file") MultipartFile file,
+            @RequestParam("title") String title,
+            @PathVariable String profile) throws IOException {
+           
+        PhotoObject photo = new PhotoObject();
+
+        photo.setName(file.getOriginalFilename());
+        photo.setContentType(file.getContentType());
+        photo.setContentLength(file.getSize());
+        photo.setContent(file.getBytes());
+        photo.setTitle(title);
+        
+        photoRepository.save(photo);
+        Account account = accountRepository.findByProfile(profile);
+        account.getPhotos().add(photo);
+        accountRepository.save(account);
+        System.out.println(profile); 
+        return "redirect:/users/{" + profile + "}/photos";
+     }
+    
     @PostMapping("/photos")
-    public String save(@RequestParam("file") MultipartFile file,
+    public String savePhoto(@RequestParam("file") MultipartFile file,
             @RequestParam("title") String title) throws IOException {
  
         PhotoObject fo = new PhotoObject();

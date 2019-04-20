@@ -4,6 +4,7 @@ package projekti;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,8 +30,9 @@ public class Account extends AbstractPersistable<Long>{
 //    private List<Account> friends = new ArrayList<>();
 //    private List<Message> receivedMessages = new ArrayList<>();
 //    private List<Message> sentMessages = new ArrayList<>();
-//    private List<FriendRequest> friendRequests = new ArrayList<>(); 
-//    private List<PhotoObject> photos = new ArrayList<>();
+//    private List<FriendRequest> friendRequests = new ArrayList<>();
+    @OneToMany
+    private List<PhotoObject> photos = new ArrayList<>();
 //    
     
 }

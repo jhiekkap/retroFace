@@ -33,13 +33,13 @@ public class UserController {
     @GetMapping("/users/{profile}")
     public String users(Model model, @PathVariable String profile) {
         
-        Account user = accountRepository.findByProfile(profile);
-        if(user != null){
+        Account account = accountRepository.findByProfile(profile);
+        if(account != null){
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             String username = auth.getName();
             Account  loggedUser = accountRepository.findByUsername(username);
             model.addAttribute("loggedUser", loggedUser); 
-            model.addAttribute("user", user); 
+            model.addAttribute("user", account); 
             return "user";
         }
         return  "redirect:/index";
