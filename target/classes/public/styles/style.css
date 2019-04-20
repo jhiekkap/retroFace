@@ -15,6 +15,6 @@ p {
 }
 .photos {
     display: inline;
-    border-style: solid;
-    color:red;
+    /*border-style: solid;*/
+    color:black;
 }

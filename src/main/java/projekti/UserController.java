@@ -21,36 +21,31 @@ public class UserController {
     
     @GetMapping("/user")
     public String user(Model model) {
-        
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        Account  user = accountRepository.findByUsername(username);
-        String profile = user.getProfile();
-        
-        return "redirect:/users/"+ profile;
+         
+        return "redirect:/users/"+ getloggedUserProfile();
     }
     
     @GetMapping("/users/{profile}")
     public String users(Model model, @PathVariable String profile) {
         
         Account account = accountRepository.findByProfile(profile);
-        if(account != null){
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            String username = auth.getName();
-            Account  loggedUser = accountRepository.findByUsername(username);
+        if(account != null){ 
+            
+            Account  loggedUser = getloggedUser();
             model.addAttribute("loggedUser", loggedUser); 
             model.addAttribute("user", account); 
+            if(loggedUser.equals(account)){
+                model.addAttribute("isLogged", true);
+            } 
             return "user";
         }
-        return  "redirect:/index";
-        
+        return  "redirect:/index"; 
     }
     
-    
-    
-      
+     
     @GetMapping("/find")
-    public String findUserPage() { 
+    public String findUserPage(Model model) { 
+         
         return "find";
     }
     
@@ -66,4 +61,26 @@ public class UserController {
         }
         return "redirect:/find";
     }
+    
+    
+    
+    public String getloggedUserProfile(){
+        
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        Account  loggedUser = accountRepository.findByUsername(username); 
+        String profile = loggedUser.getProfile();
+        
+        return profile; 
+    }
+    
+    public Account getloggedUser(){
+        
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        Account  loggedUser = accountRepository.findByUsername(username);
+        
+        return loggedUser;
+    }
+    
 }
