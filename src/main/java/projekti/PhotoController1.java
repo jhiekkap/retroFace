@@ -101,6 +101,17 @@ public class PhotoController1 {
 //        return "redirect:/users/{" + profile + "}/photos";
 //     }
     
+    @PostMapping("/users/{profile}/photos/{id}")
+    public String setProfilePhoto(@PathVariable String profile, @PathVariable Long id){
+        
+        Account account = accountRepository.findByProfile(profile);
+        PhotoObject photo = photoRepository.getOne(id);
+        account.setProfilePhoto(photo);
+        accountRepository.save(account);
+        
+        return "redirect:/users/" + getloggedUserProfile();   
+    }
+    
     @PostMapping("/photos") // PARANNETU VANHA.........
     public String savePhoto(@RequestParam("file") MultipartFile file,
             @RequestParam("title") String title) throws IOException {

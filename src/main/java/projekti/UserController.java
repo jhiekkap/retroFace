@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
     
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountRepository accountRepository; 
+    
     
     
     @GetMapping("/user")
@@ -36,7 +37,7 @@ public class UserController {
             model.addAttribute("user", account); 
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
-            } 
+            }  
             return "user";
         }
         return  "redirect:/index"; 

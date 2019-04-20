@@ -5,19 +5,16 @@
     <body>
         <div class="box"> 
         <header th:replace="fragments/layout :: header"></header>
-        <p>MY PROFILE PHOTO</p>
         
-       <!--<img th:src="@{/photos/{id}/content(id=${1})}"/>-->
-       <!--TÄHÄN PROFIILIKUVAA-->
-       <img th:src="@{/photos/1/content}"/> 
-        
-        
-        <!--<img th:src="@{profilePic.jpg}" alt="profile pic"/>-->
+         <div th:if="${user.profilePhoto == null}">
+            <span>No Profile Photo</span>
+        </div>
+         <div th:if="${user.profilePhoto != null}"> 
+            <img th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/>  
+        </div> 
         
         <p th:text="${user.name}" >My name</p>
-        
-        
-        <br/>
+          
         <h1>My friends:</h1>
 
         <ul>

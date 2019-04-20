@@ -1,5 +1,7 @@
 projekti\Account.class
 projekti\AccountRepository.class
+projekti\SignUpController.class
+projekti\PhotoController1.class
 projekti\Comment.class
 projekti\Message.class
 projekti\FriendRequest.class
@@ -8,5 +10,5 @@ projekti\DevelopmentSecurityConfiguration.class
 projekti\MyApplication.class
 projekti\PhotoRepository.class
 projekti\CustomUserDetailsService.class
-projekti\SignInController.class
+projekti\UserController.class
 projekti\DefaultController.class

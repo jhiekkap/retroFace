@@ -38,7 +38,8 @@ public class SignUpController {
         }
         
         Account a = new Account();
-        System.out.println(name + username + password + profile);
+        System.out.println("SIGNED UP AS A NEW USER: " + name + "\n"
+                + username + "\n" + password + "\n" +profile);
          
         a.setName(name); 
         a.setUsername(username);
@@ -46,6 +47,6 @@ public class SignUpController {
         a.setProfile(profile);
         accountRepository.save(a);
         
-        return "index";
+        return "redirect:/user";
     }
 }

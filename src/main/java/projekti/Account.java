@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,8 @@ public class Account extends AbstractPersistable<Long>{
 //    private String authority = "USER";
 //    
 //    private boolean user = false;
-    
-//    private PhotoObject  profilePhoto = null;
+    @OneToOne
+    private PhotoObject  profilePhoto = null;
     
 //    private List<Account> friends = new ArrayList<>();
 //    private List<Message> receivedMessages = new ArrayList<>();
