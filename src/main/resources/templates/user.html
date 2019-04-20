@@ -35,7 +35,9 @@
             <li th:each="request: ${friendRequests}">
                 <!--<span th:text="${request}"></span>-->
                 <span th:text="${request.requester.name}"></span>
-                <span th:text="${request.date}"></span>
+                <span th:text="${request.date}"></span> 
+                <form th:method="POST" th:action="@{/makingFriendsWith/{profile} (profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
+                <form th:method="POST" th:action="@{/signUp}"><input type="submit" value="DECLINE"/></form> 
             </li>
         </ul> 
         

@@ -1,6 +1,7 @@
  
 package projekti;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -39,7 +40,15 @@ public class UserController {
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
             }  
-            List<Account> friends = account.getFriends();
+            List<Friendship> friendships = account.getFriendships();
+            List<Account> friends = new ArrayList<>();
+            friendships.forEach((friendship) -> {
+                if(friendship.getFriend1().equals(getloggedUser())){
+                    friends.add(friendship.getFriend2());
+                } else {
+                    friends.add(friendship.getFriend1());
+                }
+            });
             model.addAttribute("friends", friends);
             
             List<FriendRequest> requests = account.getFriendRequests();

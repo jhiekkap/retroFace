@@ -37,8 +37,8 @@ public class Account extends AbstractPersistable<Long>{
     private PhotoObject  profilePhoto = null;
   
     //____________----------------????????????????????????-----------------------------
-    @ManyToMany(mappedBy = "account")
-    private List<Account> friends = new ArrayList<>();
+//    @ManyToMany(mappedBy = "account")
+//    private List<Account> friends = new ArrayList<>();
 //    private List<Message> receivedMessages = new ArrayList<>();
 //    private List<Message> sentMessages = new ArrayList<>();
 //    @OneToMany(mappedBy="requester")
@@ -47,6 +47,9 @@ public class Account extends AbstractPersistable<Long>{
     private List<FriendRequest> friendRequests = new ArrayList<>();
     @OneToMany
     private List<PhotoObject> photos = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "friend1")
+    private List<Friendship> friendships = new ArrayList<>();
 //    
     
 }
