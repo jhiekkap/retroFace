@@ -16,21 +16,30 @@
         <p th:text="${user.name}" >My name</p>
           
         <h1>My friends:</h1>
-
+        <div th:if="${friends.empty}">
+            <span>No Friends</span>
+        </div> 
         <ul>
             <li th:each="friend: ${friends}">
-                <span th:text="${friend.name + friend.lastName}"></span>
+                <!--<span th:text="${friend.name}"></span>-->
+                <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
             </li>
         </ul>
         
         <h1>Friend requests:</h1>
+        <div th:if="${friendRequests.empty}">
+            <span>No FriendRequests</span>
+        </div> 
 
         <ul>
             <li th:each="request: ${friendRequests}">
-                <span th:text="${request.name + request.date}"></span>
+                <!--<span th:text="${request}"></span>-->
+                <span th:text="${request.requester.name}"></span>
+                <span th:text="${request.date}"></span>
             </li>
         </ul> 
-<!--        <a th:href="@{/photos}">photos</a>-->
+        
+         
          
         <h1> WALL -------------- MESSAGES: </h1>
         

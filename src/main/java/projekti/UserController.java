@@ -1,6 +1,7 @@
  
 package projekti;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,6 +39,13 @@ public class UserController {
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
             }  
+            List<Account> friends = account.getFriends();
+            model.addAttribute("friends", friends);
+            
+            List<FriendRequest> requests = account.getFriendRequests();
+            model.addAttribute("friendRequests", requests);
+            
+             
             return "user";
         }
         return  "redirect:/index"; 
@@ -65,6 +73,8 @@ public class UserController {
     
     
     
+    
+    
     public String getloggedUserProfile(){
         
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -83,5 +93,5 @@ public class UserController {
         
         return loggedUser;
     }
-    
+     
 }

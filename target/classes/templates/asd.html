@@ -1,0 +1,19 @@
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+         <p th:text="${user.name}" ></p>
+         <li th:each="request: ${requests}">
+                <span th:text="${request}"></span>
+                <span th:text="${request.requester}"></span>
+                <span th:text="${request.date}"></span>
+            </li>
+         <p th:text="${requests]" ></p>
+        
+    </body>
+</html>

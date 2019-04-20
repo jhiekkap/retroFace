@@ -18,7 +18,7 @@
                 <img th:src="@{/photos/{id}/content(id=${photo.id})}"/>
                 <!--<img th:src="@{users/{profile}/photos/{id}/content(id=${photo.id})}"/>-->
                 <p th:text="${photo.title}"></p> 
-                <!--<a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>-->
+<!--                <a th:href="@{/photos/{id}(id=${photo.id})}" th:text="${photo.name}">photo name</a>-->
                 <div th:if="${isLogged}">
                     <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
                     <form th:action="@{/users/{profile}/photos/{id}(profile=${user.profile}, id=${photo.id})}" th:method="POST"><input type="submit" value="Set Profile Photo"/></form>
