@@ -19,18 +19,9 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message extends AbstractPersistable<Long>{
+public class Like extends AbstractPersistable<Long>{
     
     @ManyToOne
     private Account sender;
-    
-    private LocalDate date;
-    private String content;
       
-    @OneToMany
-    private List<Like> likes = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "message")
-    private List<Comment> comments = new ArrayList<>();
-    
 }

@@ -29,21 +29,18 @@ public class Account extends AbstractPersistable<Long>{
     private String name;  
     private String username;
     private String password; 
-    private String profile;
-//    private String authority = "USER";
-//    
-//    private boolean user = false;
-    @OneToOne
-    private PhotoObject  profilePhoto = null;
-  
-    //____________----------------????????????????????????-----------------------------
-//    @ManyToMany(mappedBy = "account")
-//    private List<Account> friends = new ArrayList<>();
-//    private List<Message> receivedMessages = new ArrayList<>();
-//    private List<Message> sentMessages = new ArrayList<>();
-//    @OneToMany(mappedBy="requester")
+    private String profile; 
     
-   
+    @OneToOne
+    @ManyToOne
+    private PhotoObject  profilePhoto = null;
+    
+    @OneToMany(mappedBy = "sender")
+    private List<Message> messages = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "sender")
+    private List<Comment> comments = new ArrayList<>();
+  
     @OneToMany(mappedBy = "to")
     private List<FriendRequest> friendRequests = new ArrayList<>();
     @OneToMany
@@ -51,6 +48,5 @@ public class Account extends AbstractPersistable<Long>{
     
     @OneToMany(mappedBy = "friend1")
     private List<Friendship> friendships = new ArrayList<>();
-//    
-    
+     
 }

@@ -22,12 +22,14 @@ public class PhotoObject extends AbstractPersistable<Long> {
     private Long contentLength;
     private String title;
     
-//    private List<Account> likes = new ArrayList<>();
-//    private List<Comment> comments = new ArrayList<>();
+    
+    @OneToMany
+    private List<Like> likes = new ArrayList<>();
+    @OneToMany
+    private List<Comment> comments = new ArrayList<>();
     
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] content;
-
-    
+ 
 }

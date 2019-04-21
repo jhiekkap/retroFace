@@ -9,9 +9,15 @@ h1 {
  
    padding: 10px;
 }
+
+h2 {
+  color: white;
+ 
+   padding: 10px;
+}
 p {
-    padding: 10px;
-    
+    color: white;
+    padding: 10px; 
 }
 .photos {
     display: inline;

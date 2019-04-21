@@ -22,8 +22,7 @@
             <p>No Friends</p>
         </div> 
         <ul>
-            <li th:each="friend: ${friends}">
-                <!--<span th:text="${friend.name}"></span>-->
+            <li th:each="friend: ${friends}"> 
                 <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
             </li>
         </ul>
@@ -34,8 +33,7 @@
         </div> 
 
         <ul>
-            <li th:each="request: ${friendRequests}"> 
-                <!--<p th:text="${request.requester.name}"></p>-->
+            <li th:each="request: ${friendRequests}">  
                 <a th:href="@{/users/{profile}(profile=${request.requester.profile})}" th:text="${request.requester.name}"></a>
                 <span th:text="${request.date}"></span> 
                 <form th:method="POST" th:action="@{/makingFriendsWith/{profile} (profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
@@ -46,6 +44,13 @@
          
          
         <h1> WALL -------------- MESSAGES: </h1>
+<!--        <form th:method="POST" th:action="@{/users/{profile}/writeMessageBy/{sender} (profile=${user.profile}, sender=${loggedUser})}" id="usrform">
+             
+              <input type="submit"/>
+            </form>
+            <br/>
+                <textarea rows="4" cols="50" name="comment" form="usrform">
+                    Enter text here...</textarea>-->
         
         <ul>
             <li th:each="message: ${messages}">
