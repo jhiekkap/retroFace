@@ -43,16 +43,16 @@ public class UserController {
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
             }  
-            List<Friendship> friendships = friendshipRepository.findAll();
-            List<Account> friends = new ArrayList<>();
-            friendships.forEach((friendship) -> {
-                if(friendship.getFriend1().equals(account)){
-                    friends.add(friendship.getFriend2());
-                } else if(friendship.getFriend2().equals(account)){
-                    friends.add(friendship.getFriend1());
-                }
-            }); 
-            model.addAttribute("friends", friends);
+//            List<Friendship> friendships = friendshipRepository.findAll();
+//            List<Account> friends = new ArrayList<>();
+//            friendships.forEach((friendship) -> {
+//                if(friendship.getFriend1().equals(account)){
+//                    friends.add(friendship.getFriend2());
+//                } else if(friendship.getFriend2().equals(account)){
+//                    friends.add(friendship.getFriend1());
+//                }
+//            }); 
+            model.addAttribute("friends",getMyFriends(account));
             
             List<FriendRequest> requests = account.getFriendRequests();
             model.addAttribute("friendRequests", requests);
@@ -89,15 +89,22 @@ public class UserController {
     @GetMapping("/users/{profile}/allUsers")
     public String allUsers (Model model, @PathVariable String profile){
         
-        Account userAccount = accountRepository.findByProfile(profile);
+        Account account = accountRepository.findByProfile(profile);
         model.addAttribute("loggedUser", getloggedUser()); 
-        model.addAttribute("user", userAccount);
+        model.addAttribute("user", account);
         
+        if(getloggedUser().equals(account)){
+                model.addAttribute("isLogged", true);
+            }   
         List<Account> users = new ArrayList<>();
-        accountRepository.findAll().forEach((user) ->{
+        accountRepository.findAll().forEach((user) ->{ 
+            if(!user.equals(account) && !isMyFriend(user)){
             users.add(user);
+            }
         });
         model.addAttribute("users", users);
+        model.addAttribute("friends", getMyFriends(getloggedUser()));
+        
         
         return "allUsers";
         
@@ -121,6 +128,25 @@ public class UserController {
         Account  loggedUser = accountRepository.findByUsername(username);
         
         return loggedUser;
+    }
+    
+    public List<Account> getMyFriends(Account account){
+        
+        List<Friendship> friendships = friendshipRepository.findAll();
+            List<Account> friends = new ArrayList<>();
+            friendships.forEach((friendship) -> {
+                if(friendship.getFriend1().equals(account)){
+                    friends.add(friendship.getFriend2());
+                } else if(friendship.getFriend2().equals(account)){
+                    friends.add(friendship.getFriend1());
+                }
+            });  
+            return friends; 
+    }
+    
+    public boolean isMyFriend(Account account){
+        
+        return getMyFriends(getloggedUser()).contains(account);
     }
      
 }

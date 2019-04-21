@@ -4,8 +4,10 @@
     <body>
         
         <header th:replace="fragments/layout :: header"></header>
-        
-        <h1>My pics:</h1>
+         
+         
+        <div th:if="${isLogged}"><h1>My Photos:</h1></div> 
+        <div th:if="${isLogged != true}"><h2 th:text="${user.name} + '´s Photos:'"></h2></div> 
         
         <div th:if="${photos.empty}">
             <span>No photos</span>

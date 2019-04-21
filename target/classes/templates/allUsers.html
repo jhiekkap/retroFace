@@ -5,11 +5,26 @@
         <header th:replace="fragments/layout :: allUsersNavi"></header>
  
         <br/><br/>
+        <h1>My Friends:</h1>
+
         <ul>
-            <li th:each="user: ${users}"> 
-                 <a th:href="@{/users/{profile}(profile=${user.profile})}" th:text="${user.name}"></a>
+            <li th:each="friend: ${friends}">
+                <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
+            </li>
+        </ul>
+        
+        <h1>Other Users:</h1>
+        <ul>
+            <li th:each="user: ${users}">  
+                <a th:href="@{/users/{profile}(profile=${user.profile})}" th:text="${user.name}"></a> 
+                <div th:if="${!user.equals(loggedUser)}">  
+                    <form th:method="POST" th:action="@{/signUp}"><input type="submit" value="SEND FRIEND REQUEST"/></form> 
+                </div>
             </li> 
         </ul> 
         
     </body>
 </html>
+
+ 
+ <div th:if="${isLogged}"></div>

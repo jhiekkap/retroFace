@@ -4,28 +4,7 @@
     <body>
         
         <header th:replace="fragments/layout :: findNavi"></header>
-
-<!--        
-        <h1>My friends:</h1>
-
-        <ul>
-            <li th:each="friend: ${friends}">
-                <span th:text="${friend.name + friend.lastName}"></span>
-            </li>
-        </ul>
-        
-        <h1>Other users:</h1>
-
-        <ul>
-            <li th:each="otherUser: ${otherUsers}">
-                <span th:text="${otherUser.name + otherUser.lastName}"></span>
-            </li>
-        </ul>
-        -->
-        <br/><br/>    
-        <div>
-<!--            <h3>Find a user</h3>-->
-
+        <br/><br/>
         <form method="POST" th:action="@{/findUser}"> 
             <input type="text" name="name" id="name" placeholder="name"/> 
             <input type="submit" value="Find User" />

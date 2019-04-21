@@ -14,10 +14,12 @@
         </div> 
         
         <p th:text="${user.name}" >My name</p>
-          
-        <h1>My friends:</h1>
+        
+        <div th:if="${isLogged}"><h1>My Friends:</h1></div> 
+        <div th:if="${isLogged != true}"><h2 th:text="${user.name} + '´s Friends:'"></h2></div> 
+        
         <div th:if="${friends.empty}">
-            <span>No Friends</span>
+            <p>No Friends</p>
         </div> 
         <ul>
             <li th:each="friend: ${friends}">
@@ -25,10 +27,10 @@
                 <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
             </li>
         </ul>
-        
+        <div th:if="${isLogged}">
         <h1>Friend requests:</h1>
         <div th:if="${friendRequests.empty}">
-            <span>No FriendRequests</span>
+            <p>No FriendRequests</p>
         </div> 
 
         <ul>
@@ -40,7 +42,7 @@
                 <form th:method="POST" th:action="@{/signUp}"><input type="submit" value="DECLINE"/></form> 
             </li>
         </ul> 
-        
+        </div>
          
          
         <h1> WALL -------------- MESSAGES: </h1>
