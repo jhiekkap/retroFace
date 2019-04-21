@@ -20,15 +20,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @AllArgsConstructor
 public class FriendRequest extends AbstractPersistable<Long>{
 
-//    @ManyToMany(mappedBy = "friendRequests")
-//    private List<Account> accounts;
-    
-//    @ManyToOne 
-    @OneToOne
+ 
+    @ManyToOne
     private Account requester; 
-//    @ManyToOne
-    @OneToOne
+ 
+    @ManyToOne
     private Account to;
+    
     private LocalDate date; 
      
 }

@@ -28,15 +28,15 @@
             </li>
         </ul>
         <div th:if="${isLogged}">
-        <h1>Friend requests:</h1>
+        <h1>Friend Requests:</h1>
         <div th:if="${friendRequests.empty}">
-            <p>No FriendRequests</p>
+            <p>No Friend Requests</p>
         </div> 
 
         <ul>
-            <li th:each="request: ${friendRequests}">
-                <!--<span th:text="${request}"></span>-->
-                <span th:text="${request.requester.name}"></span>
+            <li th:each="request: ${friendRequests}"> 
+                <!--<p th:text="${request.requester.name}"></p>-->
+                <a th:href="@{/users/{profile}(profile=${request.requester.profile})}" th:text="${request.requester.name}"></a>
                 <span th:text="${request.date}"></span> 
                 <form th:method="POST" th:action="@{/makingFriendsWith/{profile} (profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
                 <form th:method="POST" th:action="@{/signUp}"><input type="submit" value="DECLINE"/></form> 

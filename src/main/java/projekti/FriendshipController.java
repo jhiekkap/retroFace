@@ -1,6 +1,7 @@
  
 package projekti;
 
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -34,67 +35,42 @@ public class FriendshipController {
          friendship.setFriend1(getloggedUser());
          friendship.setFriend2(friend2);
          friendshipRepository.save(friendship);
-//         FriendRequest friendRequest = friendRequestRepository.FindByRequester(friend2);
-//         friendRequestRepository.delete(friendRequest);
-        
+         
+//         friendRequestRepository.delete(friendRequestRepository.findByRequesterAndTo(getloggedUser(), friend2));
+         Account loggedUser = getloggedUser();
+//         List<FriendRequest> friendRequests = loggedUser.getFriendRequests();
+//         List<FriendRequest> friendRequests = friendRequestRepository.findByRequester(friend2);
+//         FriendRequest requestToRemove = null;
+//         for(FriendRequest friendRequest:friendRequests){
+//             if(friendRequest.getTo().equals(loggedUser)){
+//                 requestToRemove = friendRequest;
+//                 break;
+//             }
+//         }
+//         friendRequests.remove(requestToRemove);
+//         accountRepository.save(loggedUser);
+            FriendRequest request = friendRequestRepository.findByRequesterAndTo(friend2, getloggedUser());
+            friendRequestRepository.delete(request);
+            
+            
+            
         return "redirect:/users/" + getloggedUserProfile();
     }
     
+    @PostMapping("/sendFriendRequestTo/{profile}")
+    public String sendFriendRequest(@PathVariable String profile){
+        
+        FriendRequest friendRequest = new FriendRequest();
+        friendRequest.setRequester(getloggedUser());
+        friendRequest.setTo(accountRepository.findByProfile(profile));
+        friendRequest.setDate(LocalDate.now());
+        friendRequestRepository.save(friendRequest);
+         
+        return "redirect:/users/" + getloggedUserProfile();
+    }
     
-//    @GetMapping("/user")
-//    public String user(Model model) {
-//         
-//        return "redirect:/users/"+ getloggedUserProfile();
-//    }
-//    
-//    @GetMapping("/users/{profile}")
-//    public String users(Model model, @PathVariable String profile) {
-//        
-//        Account account = accountRepository.findByProfile(profile);
-//        if(account != null){ 
-//            
-//            Account  loggedUser = getloggedUser();
-//            model.addAttribute("loggedUser", loggedUser); 
-//            model.addAttribute("user", account); 
-//            if(loggedUser.equals(account)){
-//                model.addAttribute("isLogged", true);
-//            }  
-//            List<Account> friends = account.getFriends();
-//            model.addAttribute("friends", friends);
-//            
-//            List<FriendRequest> requests = account.getFriendRequests();
-//            model.addAttribute("friendRequests", requests);
-//            
-//             
-//            return "user";
-//        }
-//        return  "redirect:/index"; 
-//    }
-//    
-//     
-//    @GetMapping("/find")
-//    public String findUserPage(Model model) { 
-//         
-//        return "find";
-//    }
-//    
-//    
-//    @PostMapping("/findUser")
-//    public String findUser (@RequestParam String name){
-//        if(accountRepository.findByName(name) != null){
-//            
-//            Account user = accountRepository.findByName(name); 
-//            String profile = user.getProfile();
-//            
-//            return "redirect:/users/"+ profile;
-//        }
-//        return "redirect:/find";
-//    }
-//    
-//    
-//    
-//    
-    
+  
+ 
     public String getloggedUserProfile(){
         
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

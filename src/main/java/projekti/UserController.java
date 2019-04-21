@@ -42,19 +42,12 @@ public class UserController {
             
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
-            }  
-//            List<Friendship> friendships = friendshipRepository.findAll();
-//            List<Account> friends = new ArrayList<>();
-//            friendships.forEach((friendship) -> {
-//                if(friendship.getFriend1().equals(account)){
-//                    friends.add(friendship.getFriend2());
-//                } else if(friendship.getFriend2().equals(account)){
-//                    friends.add(friendship.getFriend1());
-//                }
-//            }); 
+            }   
+            
             model.addAttribute("friends",getMyFriends(account));
             
-            List<FriendRequest> requests = account.getFriendRequests();
+            List<FriendRequest> requests = loggedUser.getFriendRequests();
+            
             model.addAttribute("friendRequests", requests);
              
             return "user";
@@ -104,11 +97,11 @@ public class UserController {
         });
         model.addAttribute("users", users);
         model.addAttribute("friends", getMyFriends(getloggedUser()));
-        
-        
-        return "allUsers";
-        
+         
+        return "allUsers"; 
     }
+    
+    
      
     
     public String getloggedUserProfile(){

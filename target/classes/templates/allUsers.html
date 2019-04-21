@@ -18,7 +18,7 @@
             <li th:each="user: ${users}">  
                 <a th:href="@{/users/{profile}(profile=${user.profile})}" th:text="${user.name}"></a> 
                 <div th:if="${!user.equals(loggedUser)}">  
-                    <form th:method="POST" th:action="@{/signUp}"><input type="submit" value="SEND FRIEND REQUEST"/></form> 
+                    <form th:method="POST" th:action="@{/sendFriendRequestTo/{profile} (profile=${user.profile})}"><input type="submit" value="SEND FRIEND REQUEST"/></form> 
                 </div>
             </li> 
         </ul> 
