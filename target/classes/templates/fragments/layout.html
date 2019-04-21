@@ -25,6 +25,9 @@
                         <a class="nav-link" th:href="@{/users/{profile}/find (profile=${user.profile})}">FIND</a>
                     </li> 
                     <li class="nav-item">
+                        <a class="nav-link" th:href="@{/users/{profile}/allUsers (profile=${user.profile})}">ALL USERS</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
                     </li> 
                 </ul>

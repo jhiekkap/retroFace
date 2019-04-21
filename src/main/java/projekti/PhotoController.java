@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
-public class PhotoController1 {
+public class PhotoController {
     
     @Autowired
     private PhotoRepository photoRepository;

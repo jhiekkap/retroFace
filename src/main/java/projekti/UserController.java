@@ -19,6 +19,8 @@ public class UserController {
     
     @Autowired
     private AccountRepository accountRepository; 
+    @Autowired
+    private FriendshipRepository friendshipRepository; 
     
     
     
@@ -37,23 +39,23 @@ public class UserController {
             Account  loggedUser = getloggedUser();
             model.addAttribute("loggedUser", loggedUser); 
             model.addAttribute("user", account); 
+            
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
             }  
-            List<Friendship> friendships = account.getFriendships();
+            List<Friendship> friendships = friendshipRepository.findAll();
             List<Account> friends = new ArrayList<>();
             friendships.forEach((friendship) -> {
-                if(friendship.getFriend1().equals(getloggedUser())){
+                if(friendship.getFriend1().equals(account)){
                     friends.add(friendship.getFriend2());
-                } else {
+                } else if(friendship.getFriend2().equals(account)){
                     friends.add(friendship.getFriend1());
                 }
-            });
+            }); 
             model.addAttribute("friends", friends);
             
             List<FriendRequest> requests = account.getFriendRequests();
             model.addAttribute("friendRequests", requests);
-            
              
             return "user";
         }
@@ -92,7 +94,7 @@ public class UserController {
         model.addAttribute("user", userAccount);
         
         List<Account> users = new ArrayList<>();
-        accountRepository.findAll().forEach(user ->{
+        accountRepository.findAll().forEach((user) ->{
             users.add(user);
         });
         model.addAttribute("users", users);
@@ -100,10 +102,7 @@ public class UserController {
         return "allUsers";
         
     }
-    
-    
-    
-    
+     
     
     public String getloggedUserProfile(){
         
