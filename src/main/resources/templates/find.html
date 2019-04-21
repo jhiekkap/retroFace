@@ -3,7 +3,7 @@
     <head th:replace="fragments/layout :: head(text='Find')"></head>
     <body>
         
-        <!--<header th:replace="fragments/layout :: header"></header>-->
+        <header th:replace="fragments/layout :: findNavi"></header>
 
 <!--        
         <h1>My friends:</h1>
@@ -22,13 +22,13 @@
             </li>
         </ul>
         -->
-                
+        <br/><br/>    
         <div>
-            <h3>Find a user</h3>
+<!--            <h3>Find a user</h3>-->
 
         <form method="POST" th:action="@{/findUser}"> 
             <input type="text" name="name" id="name" placeholder="name"/> 
-            <input type="submit" value="Find!" />
+            <input type="submit" value="Find User" />
         </form>
         </div>
         

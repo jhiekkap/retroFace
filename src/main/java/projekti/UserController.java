@@ -61,9 +61,13 @@ public class UserController {
     }
     
      
-    @GetMapping("/find")
-    public String findUserPage(Model model) { 
+    @GetMapping("/users/{profile}/find")
+    public String findUserPage(Model model, @PathVariable String profile) { 
          
+        Account userAccount = accountRepository.findByProfile(profile);
+        model.addAttribute("loggedUser", getloggedUser()); 
+        model.addAttribute("user", userAccount);
+        
         return "find";
     }
     
@@ -78,6 +82,23 @@ public class UserController {
             return "redirect:/users/"+ profile;
         }
         return "redirect:/find";
+    }
+    
+    @GetMapping("/users/{profile}/allUsers")
+    public String allUsers (Model model, @PathVariable String profile){
+        
+        Account userAccount = accountRepository.findByProfile(profile);
+        model.addAttribute("loggedUser", getloggedUser()); 
+        model.addAttribute("user", userAccount);
+        
+        List<Account> users = new ArrayList<>();
+        accountRepository.findAll().forEach(user ->{
+            users.add(user);
+        });
+        model.addAttribute("users", users);
+        
+        return "allUsers";
+        
     }
     
     
