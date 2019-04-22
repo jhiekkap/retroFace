@@ -8,5 +8,5 @@ public interface FriendRequestRepository extends JpaRepository<FriendRequest, Lo
 //     FriendRequest FindByRequester(Account requester);
     FriendRequest findByRequesterAndRequested (Account requester, Account requested);
     List<FriendRequest> findByRequester(Account requester);
-    List<FriendRequest> findByRequested(Account requester);
+    List<FriendRequest> findByRequested(Account requested);
 }

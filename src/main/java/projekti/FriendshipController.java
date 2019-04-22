@@ -35,37 +35,28 @@ public class FriendshipController {
          friendship.setFriend1(getloggedUser());
          friendship.setFriend2(friend2);
          friendshipRepository.save(friendship);
-         
-//         friendRequestRepository.delete(friendRequestRepository.findByRequesterAndTo(getloggedUser(), friend2));
+          
          Account loggedUser = getloggedUser();
-//         List<FriendRequest> friendRequests = loggedUser.getFriendRequests();
-//         List<FriendRequest> friendRequests = friendRequestRepository.findByRequester(friend2);
-//         FriendRequest requestToRemove = null;
-//         for(FriendRequest friendRequest:friendRequests){
-//             if(friendRequest.getTo().equals(loggedUser)){
-//                 requestToRemove = friendRequest;
-//                 break;
-//             }
-//         }
-//         friendRequests.remove(requestToRemove);
-//         accountRepository.save(loggedUser);
-            FriendRequest request = friendRequestRepository.findByRequesterAndRequested(friend2, getloggedUser());
+ 
+            FriendRequest request = friendRequestRepository
+                    .findByRequesterAndRequested(friend2, getloggedUser());
             friendRequestRepository.delete(request);
-            
-            
-            
+             
         return "redirect:/users/" + getloggedUserProfile();
     }
     
     @PostMapping("/sendFriendRequestTo/{profile}")
     public String sendFriendRequest(@PathVariable String profile){
         
+        if(friendRequestRepository.findByRequesterAndRequested(accountRepository
+                .findByProfile(profile), getloggedUser()) == null){
+        
         FriendRequest friendRequest = new FriendRequest();
         friendRequest.setRequester(getloggedUser());
         friendRequest.setRequested(accountRepository.findByProfile(profile));
         friendRequest.setDate(LocalDate.now());
         friendRequestRepository.save(friendRequest);
-         
+        } 
         return "redirect:/users/" + getloggedUserProfile();
     }
     

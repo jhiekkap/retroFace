@@ -94,13 +94,19 @@ public class UserController {
         if(getloggedUser().equals(account)){
                 model.addAttribute("isLogged", true);
             }   
-        List<Account> users = new ArrayList<>();
+        List<Account> otherUsers = new ArrayList<>();
+        List<Account> possibleFriends = new ArrayList<>();
+         
+        
         accountRepository.findAll().forEach((user) ->{ 
             if(!user.equals(account) && !isMyFriend(user)){
-            users.add(user);
+            otherUsers.add(user);
+            } else if (!user.equals(account) && isPossibleFriend(user)){
+                possibleFriends.add(user);
             }
         });
-        model.addAttribute("users", users);
+        model.addAttribute("otherUsers", otherUsers);
+        model.addAttribute("possibleFriends", possibleFriends);
         model.addAttribute("friends", getMyFriends(getloggedUser()));
          
         return "allUsers"; 
@@ -146,5 +152,9 @@ public class UserController {
         
         return getMyFriends(getloggedUser()).contains(account);
     }
-     
+    public boolean isPossibleFriend(Account account){
+         
+         return (friendRequestRepository.findByRequester(account) != null  || 
+                 friendRequestRepository.findByRequested(account) != null);
+    }
 }

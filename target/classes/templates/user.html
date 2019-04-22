@@ -52,7 +52,7 @@
                 
                 <p th:text="${message.content}"></p>
                 <ul>
-                    <form th:method="POST" th:action="@{/{profile}/commentsOn/(profile=${user.profile})}">
+                    <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">
                     <!--<form th:method="POST" th:action="@{/{profile}/commentsOn/{message} (profile=${loggedUser.profile}, message=${message})}">-->    
                         <label for="comment">Comment:</label>
                         <input type="text" name="content" id="comment"/> 

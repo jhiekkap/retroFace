@@ -12,10 +12,17 @@
                 <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
             </li>
         </ul>
+        <h1>Possible Friends:</h1>
+        <ul>
+            <li th:each="user: ${possibleFriends}">  
+                <a th:href="@{/users/{profile}(profile=${user.profile})}" th:text="${user.name}"></a> 
+                 
+            </li> 
+        </ul> 
         
         <h1>Other Users:</h1>
         <ul>
-            <li th:each="user: ${users}">  
+            <li th:each="user: ${otherUsers}">  
                 <a th:href="@{/users/{profile}(profile=${user.profile})}" th:text="${user.name}"></a> 
                 <div th:if="${!user.equals(loggedUser)}">  
                     <form th:method="POST" th:action="@{/sendFriendRequestTo/{profile} (profile=${user.profile})}"><input type="submit" value="SEND FRIEND REQUEST"/></form> 

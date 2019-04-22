@@ -4,6 +4,7 @@ package projekti;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,23 +42,31 @@ public class MessageController {
         
 //        account.getMessages().add(message);
         messageRepository.save(message);
+        messageRepository.findById(Long.MIN_VALUE);
          
         return "redirect:/users/" + profile;
     }
     
-    @PostMapping("/{profile}/commentsOn/")
-    private String commentOn(@PathVariable String profile, @RequestParam String content){
+     
+    
+    
+    
+    @PostMapping("/commentsMessage/{id}/by/{profile}")
+    private String commentOn(@PathVariable Long id, @PathVariable String profile, @RequestParam String content){
         
         Comment comment = new Comment();
-        comment.setSender(accountRepository.findByProfile(profile));
-        comment.setReceiver(getloggedUser());
+        comment.setSender(getloggedUser());
+        comment.setReceiver(accountRepository.findByProfile(profile)); 
         comment.setDate(LocalDate.now());
-        
-        
-        Message message = messageRepository.findByContent(content);
+        comment.setContent(content);
+        comment.setMessage(messageRepository.getOne(id));
+         
+         System.out.println("-------------ID: " + id);
+         
+        Message message = messageRepository.getOne(id); 
         message.getComments().add(comment);
         messageRepository.save(message);
-        commentRepository.save(comment);
+        commentRepository.save(comment);//???????????
         
          return "redirect:/users/" + profile; 
     }
