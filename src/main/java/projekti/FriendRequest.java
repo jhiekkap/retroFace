@@ -25,7 +25,7 @@ public class FriendRequest extends AbstractPersistable<Long>{
     private Account requester; 
  
     @ManyToOne
-    private Account to;
+    private Account requested;
     
     private LocalDate date; 
      

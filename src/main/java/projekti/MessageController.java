@@ -24,20 +24,43 @@ public class MessageController {
     private FriendshipRepository friendshipRepository; 
     @Autowired
     private MessageRepository messageRepository; 
+    @Autowired
+    private CommentRepository commentRepository; 
     
     
-    @PostMapping("/users/{profile}/writeMessageBy/{sender}")
-    private String writeMessage(@PathVariable String profile, @PathVariable String sender, 
-            @RequestParam String content){
+    @PostMapping("/writeMessageTo/{profile}")
+    private String writeMessage(@PathVariable String profile, @RequestParam String content){
+        
         Message message = new Message();
-        message.setSender(accountRepository.findByProfile(sender));
+        Account account = accountRepository.findByProfile(profile); 
+        
+        message.setSender(getloggedUser());
+        message.setReceiver(account);
         message.setContent(content);
         message.setDate(LocalDate.now());
-        messageRepository.save(message);
         
+//        account.getMessages().add(message);
+        messageRepository.save(message);
+         
         return "redirect:/users/" + profile;
     }
     
+    @PostMapping("/{profile}/commentsOn/")
+    private String commentOn(@PathVariable String profile, @RequestParam String content){
+        
+        Comment comment = new Comment();
+        comment.setSender(accountRepository.findByProfile(profile));
+        comment.setReceiver(getloggedUser());
+        comment.setDate(LocalDate.now());
+        
+        
+        Message message = messageRepository.findByContent(content);
+        message.getComments().add(comment);
+        messageRepository.save(message);
+        commentRepository.save(comment);
+        
+         return "redirect:/users/" + profile; 
+    }
 //    
 //    
 //    @GetMapping("/user")

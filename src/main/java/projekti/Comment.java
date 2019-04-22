@@ -24,6 +24,8 @@ public class Comment extends AbstractPersistable<Long>{
     
     @ManyToOne
     private Account sender;
+    @ManyToOne
+    private Account receiver;
     
     private LocalDate date;
     private String content;

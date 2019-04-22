@@ -22,6 +22,8 @@ public class UserController {
     @Autowired
     private FriendshipRepository friendshipRepository; 
     @Autowired
+    private FriendRequestRepository friendRequestRepository; 
+    @Autowired
     private MessageRepository messageRepository; 
     
     
@@ -41,15 +43,17 @@ public class UserController {
             Account  loggedUser = getloggedUser();
             model.addAttribute("loggedUser", loggedUser); 
             model.addAttribute("user", account); 
-            
+             
             if(loggedUser.equals(account)){
                 model.addAttribute("isLogged", true);
             }    
             model.addAttribute("friends",getMyFriends(account)); 
             
-            model.addAttribute("friendRequests", loggedUser.getFriendRequests());
-            
-            model.addAttribute("messages", account.getMessages());
+            List<FriendRequest> requests = friendRequestRepository.findByRequested(loggedUser);
+            model.addAttribute("friendRequests", requests);
+              
+            List<Message> messages = messageRepository.findByReceiver(account);
+            model.addAttribute("messages", messages);
              
             return "user";
         }

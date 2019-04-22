@@ -1,6 +1,7 @@
 package projekti;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +12,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DefaultController {
     
     @Autowired AccountRepository accountRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
     
     @GetMapping("/")
     public String root() { 
+        
+//        Account janina = new Account();
+//        janina.setName("Janina");
+//        janina.setUsername("janina");
+//        janina.setPassword(passwordEncoder.encode("pjotr"));
+//        janina.setProfile("BabyJane");
+//        accountRepository.save(janina);
+//        
+//        Account jari = new Account();
+//        jari.setName("Jari");
+//        jari.setUsername("palle");
+//        jari.setPassword(passwordEncoder.encode("pelle"));
+//        jari.setProfile("pallepelle");
+//        accountRepository.save(jari);
+//        
+//        Account pjotr = new Account();
+//        pjotr.setName("Pjotr");
+//        pjotr.setUsername("pietari");
+//        pjotr.setPassword(passwordEncoder.encode("daappa"));
+//        pjotr.setProfile("pietaridaappa");
+//        accountRepository.save(pjotr);
+         
         return "redirect:/index"; 
     }
     
@@ -29,10 +54,10 @@ public class DefaultController {
     
     @GetMapping("/asd")
     public String asd(Model model) { 
-        
+//        
         Account janina = accountRepository.findByProfile("BabyJane");
         model.addAttribute("user", janina);
-        model.addAttribute("requests", janina.getFriendRequests());
+//        model.addAttribute("requests", janina.getFriendRequests());
         
         
         return "asd"; 

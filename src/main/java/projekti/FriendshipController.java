@@ -49,7 +49,7 @@ public class FriendshipController {
 //         }
 //         friendRequests.remove(requestToRemove);
 //         accountRepository.save(loggedUser);
-            FriendRequest request = friendRequestRepository.findByRequesterAndTo(friend2, getloggedUser());
+            FriendRequest request = friendRequestRepository.findByRequesterAndRequested(friend2, getloggedUser());
             friendRequestRepository.delete(request);
             
             
@@ -62,7 +62,7 @@ public class FriendshipController {
         
         FriendRequest friendRequest = new FriendRequest();
         friendRequest.setRequester(getloggedUser());
-        friendRequest.setTo(accountRepository.findByProfile(profile));
+        friendRequest.setRequested(accountRepository.findByProfile(profile));
         friendRequest.setDate(LocalDate.now());
         friendRequestRepository.save(friendRequest);
          

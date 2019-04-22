@@ -21,6 +21,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @AllArgsConstructor
 public class Like extends AbstractPersistable<Long>{
     
+    
     @ManyToOne
     private Account sender;
       

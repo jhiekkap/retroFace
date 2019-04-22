@@ -44,35 +44,35 @@
          
          
         <h1> WALL -------------- MESSAGES: </h1>
-<!--        <form th:method="POST" th:action="@{/users/{profile}/writeMessageBy/{sender} (profile=${user.profile}, sender=${loggedUser})}" id="usrform">
-             
-              <input type="submit"/>
-            </form>
-            <br/>
-                <textarea rows="4" cols="50" name="comment" form="usrform">
-                    Enter text here...</textarea>-->
         
         <ul>
             <li th:each="message: ${messages}">
-                <p th:text="${message.name}"></p>
+                <span th:text="${message.sender.name}"></span>
+                <span th:text="${message.date}"></span>
+                
                 <p th:text="${message.content}"></p>
                 <ul>
-                    <li th:each="comment: ${comments}">
-                        <p th:text="${comment.name}"></p>
+                    <form th:method="POST" th:action="@{/{profile}/commentsOn/(profile=${user.profile})}">
+                    <!--<form th:method="POST" th:action="@{/{profile}/commentsOn/{message} (profile=${loggedUser.profile}, message=${message})}">-->    
+                        <label for="comment">Comment:</label>
+                        <input type="text" name="content" id="comment"/> 
+                        <input type="submit" value="Send"/>
+                    </form>
+                    <li th:each="comment: ${message.comments}">
+                        <p th:text="${comment.sender.name}"></p>
                         <p th:text="${comment.content}"></p>
                     </li>
                 </ul>
             </li>
         </ul>
         
-        <ul>
-            <li th:each="comment: ${comments}">
-                <p th:text="${comment.name + comment.lastName}"></p>
-                <p th:text="${comment.content}"></p> 
-            </li> 
-        </ul>
-        <p>Comment text field</p>
-        <p>Submit comment</p>
+        <form  th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
+                  <!--Name: <input type="text" name="usrname">--> 
+<!--            <br/>-->
+            <textarea rows="4" cols="50" name="content" form="usrform">
+             </textarea>
+             <input type="submit" value="Send"> </form>
+        
          
         </div>
     </body>
