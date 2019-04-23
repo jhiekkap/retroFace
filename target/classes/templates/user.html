@@ -24,6 +24,7 @@
         <ul>
             <li th:each="friend: ${friends}"> 
                 <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
+                <form th:method="POST" th:action="@{/removeFriend/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE FRIEND"/></form>    
             </li>
         </ul>
         <div th:if="${isLogged}">
@@ -36,7 +37,7 @@
             <li th:each="request: ${friendRequests}">  
                 <a th:href="@{/users/{profile}(profile=${request.requester.profile})}" th:text="${request.requester.name}"></a>
                 <span th:text="${request.date}"></span> 
-                <form th:method="POST" th:action="@{/makingFriendsWith/{profile} (profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
+                <form th:method="POST" th:action="@{/makingFriendsWith2/{profile} (profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
                 <form th:method="POST" th:action="@{/signUp}"><input type="submit" value="DECLINE"/></form> 
             </li>
         </ul> 

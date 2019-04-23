@@ -27,29 +27,71 @@ public class FriendshipController {
     
     
     
-    @PostMapping("/makingFriendsWith/{profile}")
-    public String makingFriends(@PathVariable String profile){
+    @PostMapping("/makingFriendsWith1/{profile}")
+    public String makingFriends1(@PathVariable String profile){
         
-         Account friend2 = accountRepository.findByProfile(profile);
-         Friendship friendship = new Friendship();
-         friendship.setFriend1(getloggedUser());
-         friendship.setFriend2(friend2);
-         friendshipRepository.save(friendship);
-          
-         Account loggedUser = getloggedUser();
- 
+         
+        Account friend1 = getloggedUser();
+        Account friend2 = accountRepository.findByProfile(profile);
+        if(!friend1.equals(friend2) && friendshipRepository.findByFriend1AndFriend2(friend1, friend2) == null
+                && friendshipRepository.findByFriend1AndFriend2(friend2, friend1) == null){
+         
+            Friendship friendship = new Friendship();
+            friendship.setFriend1(friend1);
+            friendship.setFriend2(friend2);
+            friendshipRepository.save(friendship);
+            
             FriendRequest request = friendRequestRepository
-                    .findByRequesterAndRequested(friend2, getloggedUser());
+                    .findByRequesterAndRequested(friend2, friend1);
             friendRequestRepository.delete(request);
-             
-        return "redirect:/users/" + getloggedUserProfile();
+        } 
+         return "redirect:/allUsers"; 
     }
+    
+    @PostMapping("/makingFriendsWith2/{profile}")
+    public String makingFriends2(@PathVariable String profile){
+        
+         
+        Account friend1 = getloggedUser();
+        Account friend2 = accountRepository.findByProfile(profile);
+        if(!friend1.equals(friend2) && friendshipRepository.findByFriend1AndFriend2(friend1, friend2) == null
+                && friendshipRepository.findByFriend1AndFriend2(friend2, friend1) == null){
+         
+            Friendship friendship = new Friendship();
+            friendship.setFriend1(friend1);
+            friendship.setFriend2(friend2);
+            friendshipRepository.save(friendship);
+            
+            FriendRequest request = friendRequestRepository
+                    .findByRequesterAndRequested(friend2, friend1);
+            friendRequestRepository.delete(request);
+        } 
+         return "redirect:/users/{profile}"; 
+    }
+    
+    @PostMapping("/removeFriend/{profile}")
+    public String removeFriend (@PathVariable String profile){
+        
+        Account friend1 = getloggedUser();
+        Account friend2 = accountRepository.findByProfile(profile);
+        
+        if(friendshipRepository.findByFriend1AndFriend2(friend1, friend2) != null){
+            friendshipRepository.delete(friendshipRepository.findByFriend1AndFriend2(friend1, friend2));
+        } else {
+            friendshipRepository.delete(friendshipRepository.findByFriend1AndFriend2(friend2, friend1));
+        } 
+         return "redirect:/allUsers"; 
+    }
+    
+    
     
     @PostMapping("/sendFriendRequestTo/{profile}")
     public String sendFriendRequest(@PathVariable String profile){
         
         if(friendRequestRepository.findByRequesterAndRequested(accountRepository
-                .findByProfile(profile), getloggedUser()) == null){
+                .findByProfile(profile), getloggedUser()) == null &&
+               friendRequestRepository.findByRequesterAndRequested(getloggedUser(),
+                       accountRepository.findByProfile(profile) ) == null ){
         
         FriendRequest friendRequest = new FriendRequest();
         friendRequest.setRequester(getloggedUser());
@@ -57,7 +99,7 @@ public class FriendshipController {
         friendRequest.setDate(LocalDate.now());
         friendRequestRepository.save(friendRequest);
         } 
-        return "redirect:/users/" + getloggedUserProfile();
+        return "redirect:/allUsers"; 
     }
     
   

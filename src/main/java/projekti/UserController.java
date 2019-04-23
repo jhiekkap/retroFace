@@ -84,24 +84,25 @@ public class UserController {
         return "redirect:/find";
     }
     
-    @GetMapping("/users/{profile}/allUsers")
-    public String allUsers (Model model, @PathVariable String profile){
-        
-        Account account = accountRepository.findByProfile(profile);
-        model.addAttribute("loggedUser", getloggedUser()); 
-        model.addAttribute("user", account);
-        
-        if(getloggedUser().equals(account)){
-                model.addAttribute("isLogged", true);
-            }   
+    @GetMapping("/allUsers")
+    public String allUsers (Model model){
+       
+     model.addAttribute("loggedUser", getloggedUser()); 
+//     
+//        if(getloggedUser().equals(account)){
+//                model.addAttribute("isLogged", true);
+//            } 
+
         List<Account> otherUsers = new ArrayList<>();
+//        otherUsers.add(getloggedUser());
         List<Account> possibleFriends = new ArrayList<>();
          
         
         accountRepository.findAll().forEach((user) ->{ 
-            if(!user.equals(account) && !isMyFriend(user)){
+            if(!isMyFriend(user) && !isMyPossibleFriend(user) && !user.equals(getloggedUser())){
             otherUsers.add(user);
-            } else if (!user.equals(account) && isPossibleFriend(user)){
+            } else if (!isMyFriend(user)  
+                    && isMyPossibleFriend(user) && !user.equals(getloggedUser())){
                 possibleFriends.add(user);
             }
         });
@@ -152,9 +153,31 @@ public class UserController {
         
         return getMyFriends(getloggedUser()).contains(account);
     }
-    public boolean isPossibleFriend(Account account){
+    
+    public boolean isMyPossibleFriend(Account account){
          
-         return (friendRequestRepository.findByRequester(account) != null  || 
-                 friendRequestRepository.findByRequested(account) != null);
-    }
+//        List<FriendRequest> possibleFriendRequesters = friendRequestRepository.findByRequester(account);
+//        List<FriendRequest> possibleFriendRequesteds = friendRequestRepository.findByRequested(account);
+//       
+////        if(possibleFriendRequesters.isEmpty()&& possibleFriendRequesteds.isEmpty()){
+////            return false;
+////        } else if ()
+//
+//        possibleFriendRequesters.forEach(requester -> {
+//            if(requester.getRequested().equals(account) && requester.getRequester().equals( getloggedUser())){
+//                return true;
+//            } else if
+//        }});
+
+        List<FriendRequest> friendRequests = friendRequestRepository.findAll();
+        
+        for(FriendRequest request:friendRequests){
+            if(request.getRequester().equals(account) && request.getRequested().equals(getloggedUser())){
+                 return true;
+            } else if (request.getRequested().equals(account) && request.getRequester().equals(getloggedUser())){
+                return true;
+            }   
+        }   
+        return false;
+    }     
 }

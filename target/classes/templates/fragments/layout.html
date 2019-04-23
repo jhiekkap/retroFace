@@ -25,7 +25,7 @@
                         <a class="nav-link" th:href="@{/users/{profile}/find (profile=${user.profile})}">FIND</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}/allUsers (profile=${user.profile})}">ALL USERS</a>
+                        <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
@@ -67,7 +67,7 @@
                         <a class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">WALL</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}/allUsers (profile=${user.profile})}">ALL USERS</a>
+                        <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
@@ -83,10 +83,10 @@
                         <a class="nav-link" th:href="@{/logout}">LOG OUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">WALL</a>
+                        <a class="nav-link" th:href="@{/users/{profile}/find (profile=${loggedUser.profile})}">FIND</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}/allUsers (profile=${user.profile})}">ALL USERS</a>
+                        <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
