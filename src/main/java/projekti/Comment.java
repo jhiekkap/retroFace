@@ -23,6 +23,9 @@ public class Comment extends AbstractPersistable<Long>{
     private Message message;
     
     @ManyToOne
+    private PhotoObject photoObject;
+    
+    @ManyToOne
     private Account sender;
     @ManyToOne
     private Account receiver;

@@ -29,7 +29,6 @@ public class FriendshipController {
     
     @PostMapping("/makingFriendsWith1/{profile}")
     public String makingFriends1(@PathVariable String profile){
-        
          
         Account friend1 = getloggedUser();
         Account friend2 = accountRepository.findByProfile(profile);
@@ -44,33 +43,33 @@ public class FriendshipController {
             FriendRequest request = friendRequestRepository
                     .findByRequesterAndRequested(friend2, friend1);
             friendRequestRepository.delete(request);
-        } 
-         return "redirect:/allUsers"; 
+        }  
+        return "redirect:/users/" + getloggedUserProfile(); 
     }
     
-    @PostMapping("/makingFriendsWith2/{profile}")
-    public String makingFriends2(@PathVariable String profile){
-        
-         
-        Account friend1 = getloggedUser();
-        Account friend2 = accountRepository.findByProfile(profile);
-        if(!friend1.equals(friend2) && friendshipRepository.findByFriend1AndFriend2(friend1, friend2) == null
-                && friendshipRepository.findByFriend1AndFriend2(friend2, friend1) == null){
-         
-            Friendship friendship = new Friendship();
-            friendship.setFriend1(friend1);
-            friendship.setFriend2(friend2);
-            friendshipRepository.save(friendship);
-            
-            FriendRequest request = friendRequestRepository
-                    .findByRequesterAndRequested(friend2, friend1);
-            friendRequestRepository.delete(request);
-        } 
-         return "redirect:/users/{profile}"; 
-    }
+//    @PostMapping("/makingFriendsWith2/{profile}")
+//    public String makingFriends2(@PathVariable String profile){
+//        
+//         
+//        Account friend1 = getloggedUser();
+//        Account friend2 = accountRepository.findByProfile(profile);
+//        if(!friend1.equals(friend2) && friendshipRepository.findByFriend1AndFriend2(friend1, friend2) == null
+//                && friendshipRepository.findByFriend1AndFriend2(friend2, friend1) == null){
+//         
+//            Friendship friendship = new Friendship();
+//            friendship.setFriend1(friend1);
+//            friendship.setFriend2(friend2);
+//            friendshipRepository.save(friendship);
+//            
+//            FriendRequest request = friendRequestRepository
+//                    .findByRequesterAndRequested(friend2, friend1);
+//            friendRequestRepository.delete(request);
+//        } 
+//         return "redirect:/users/" + getloggedUserProfile(); 
+//    }
     
-    @PostMapping("/removeFriend/{profile}")
-    public String removeFriend (@PathVariable String profile){
+    @PostMapping("/removeFriend1/{profile}")
+    public String removeFriend1 (@PathVariable String profile){
         
         Account friend1 = getloggedUser();
         Account friend2 = accountRepository.findByProfile(profile);
@@ -81,6 +80,20 @@ public class FriendshipController {
             friendshipRepository.delete(friendshipRepository.findByFriend1AndFriend2(friend2, friend1));
         } 
          return "redirect:/allUsers"; 
+    }
+    
+    @PostMapping("/removeFriend2/{profile}")
+    public String removeFriend2 (@PathVariable String profile){
+        
+        Account friend1 = getloggedUser();
+        Account friend2 = accountRepository.findByProfile(profile);
+        
+        if(friendshipRepository.findByFriend1AndFriend2(friend1, friend2) != null){
+            friendshipRepository.delete(friendshipRepository.findByFriend1AndFriend2(friend1, friend2));
+        } else {
+            friendshipRepository.delete(friendshipRepository.findByFriend1AndFriend2(friend2, friend1));
+        } 
+        return "redirect:/users/" + getloggedUserProfile();  
     }
     
     
@@ -100,6 +113,17 @@ public class FriendshipController {
         friendRequestRepository.save(friendRequest);
         } 
         return "redirect:/allUsers"; 
+    }
+    
+    @PostMapping("/declineFriendRequestOf/{profile}")
+    public String decline(@PathVariable String profile){
+        
+        Account friend1 = getloggedUser();
+        Account friend2 = accountRepository.findByProfile(profile);
+        FriendRequest friendRequest= friendRequestRepository.findByRequesterAndRequested(friend2, friend1);
+        friendRequestRepository.delete(friendRequest);
+        
+        return "redirect:/users/" + getloggedUserProfile(); 
     }
     
   

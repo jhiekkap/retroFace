@@ -66,41 +66,7 @@ public class PhotoController {
     }
     
     
-    
-//    ----------------- EI EHKÄ EDES TARVITA ---------------------------------------
-//    @GetMapping(path = "users/{profile}/photos/{id}/content", produces = "image/jpg")
-//    @ResponseBody
-//    public byte[] getFromUserPhotos(@PathVariable String profile, @PathVariable long id) {
-//        
-//        Account account = accountRepository.findByProfile(profile);
-//        List<PhotoObject> userPhotos = account.getPhotos();
-//        
-//        return photoRepository.getOne(id).getContent();
-//    }
-//----------------------------------    EI TOIMI VIELÄ   -------------------
-//    @PostMapping("users/{profile}/photos")
-//     public String saveUserPhoto(@RequestParam("file") MultipartFile file,
-//            @RequestParam("title") String title,
-//            @PathVariable String profile) throws IOException {
-//        
-//         
-//         System.out.println("PÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ");
-//        PhotoObject photo = new PhotoObject();
-//
-//        photo.setName(file.getOriginalFilename());
-//        photo.setContentType(file.getContentType());
-//        photo.setContentLength(file.getSize());
-//        photo.setContent(file.getBytes());
-//        photo.setTitle(title);
-//        
-//        photoRepository.save(photo);
-//        Account account = accountRepository.findByProfile(profile);
-//        account.getPhotos().add(photo);
-//        accountRepository.save(account);
-//        
-//        return "redirect:/users/{" + profile + "}/photos";
-//     }
-    
+ 
     @PostMapping("/users/{profile}/photos/{id}")
     public String setProfilePhoto(@PathVariable String profile, @PathVariable Long id){
         
@@ -128,8 +94,7 @@ public class PhotoController {
         getloggedUser().getPhotos().add(fo);
         accountRepository.save(getloggedUser()); 
         
-        return "redirect:/users/" + getloggedUserProfile() + "/photos";    
-//    return "redirect:/photos";
+        return "redirect:/users/" + getloggedUserProfile() + "/photos";  
 }
     
     @DeleteMapping("/photos/{id}")
@@ -140,8 +105,7 @@ public class PhotoController {
         account.getPhotos().remove(photo);
         accountRepository.save(account);
         
-        return "redirect:/users/" + getloggedUserProfile() + "/photos";    
-//        return "redirect:/photos";
+        return "redirect:/users/" + getloggedUserProfile() + "/photos";     
     }
     
     

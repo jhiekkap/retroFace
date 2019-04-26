@@ -27,6 +27,8 @@ public class MessageController {
     private MessageRepository messageRepository; 
     @Autowired
     private CommentRepository commentRepository; 
+    @Autowired
+    private PhotoRepository photoRepository; 
     
     
     @PostMapping("/writeMessageTo/{profile}")
@@ -60,9 +62,7 @@ public class MessageController {
         comment.setDate(LocalDate.now());
         comment.setContent(content);
         comment.setMessage(messageRepository.getOne(id));
-         
-         System.out.println("-------------ID: " + id);
-         
+           
         Message message = messageRepository.getOne(id); 
         message.getComments().add(comment);
         messageRepository.save(message);
@@ -70,86 +70,27 @@ public class MessageController {
         
          return "redirect:/users/" + profile; 
     }
-//    
-//    
-//    @GetMapping("/user")
-//    public String user(Model model) {
-//         
-//        return "redirect:/users/"+ getloggedUserProfile();
-//    }
-//    
-//    @GetMapping("/users/{profile}")
-//    public String users(Model model, @PathVariable String profile) {
-//        
-//        Account account = accountRepository.findByProfile(profile);
-//        if(account != null){ 
-//            
-//            Account  loggedUser = getloggedUser();
-//            model.addAttribute("loggedUser", loggedUser); 
-//            model.addAttribute("user", account); 
-//            
-//            if(loggedUser.equals(account)){
-//                model.addAttribute("isLogged", true);
-//            }    
-//            model.addAttribute("friends",getMyFriends(account)); 
-//            
-//            model.addAttribute("friendRequests", loggedUser.getFriendRequests());
-//            
-//            model.addAttribute("messages", messageRepository.findByProfile(profile));
-//             
-//            return "user";
-//        }
-//        return  "redirect:/index"; 
-//    }
     
-     
-//    @GetMapping("/users/{profile}/find")
-//    public String findUserPage(Model model, @PathVariable String profile) { 
-//         
-//        Account userAccount = accountRepository.findByProfile(profile);
-//        model.addAttribute("loggedUser", getloggedUser()); 
-//        model.addAttribute("user", userAccount);
-//        
-//        return "find";
-//    }
-//    
-//    
-//    @PostMapping("/findUser")
-//    public String findUser (@RequestParam String name){
-//        if(accountRepository.findByName(name) != null){
-//            
-//            Account user = accountRepository.findByName(name); 
-//            String profile = user.getProfile();
-//            
-//            return "redirect:/users/"+ profile;
-//        }
-//        return "redirect:/find";
-//    }
     
-//    @GetMapping("/users/{profile}/allUsers")
-//    public String allUsers (Model model, @PathVariable String profile){
-//        
-//        Account account = accountRepository.findByProfile(profile);
-//        model.addAttribute("loggedUser", getloggedUser()); 
-//        model.addAttribute("user", account);
-//        
-//        if(getloggedUser().equals(account)){
-//                model.addAttribute("isLogged", true);
-//            }   
-//        List<Account> users = new ArrayList<>();
-//        accountRepository.findAll().forEach((user) ->{ 
-//            if(!user.equals(account) && !isMyFriend(user)){
-//            users.add(user);
-//            }
-//        });
-//        model.addAttribute("users", users);
-//        model.addAttribute("friends", getMyFriends(getloggedUser()));
-//         
-//        return "allUsers"; 
-//    }
-//    
-//    
-     
+    @PostMapping("/commentsPhoto/{id}/by/{profile}")
+    private String commentPhoto(@PathVariable Long id, @PathVariable String profile, @RequestParam String content){
+        
+        Comment comment = new Comment();
+        comment.setSender(getloggedUser());
+        comment.setReceiver(accountRepository.findByProfile(profile)); 
+        comment.setDate(LocalDate.now());
+        comment.setContent(content); 
+        comment.setPhotoObject(photoRepository.getOne(id));
+          
+        PhotoObject photo = photoRepository.getOne(id); 
+        photo.getComments().add(comment);
+        photoRepository.save(photo);
+        commentRepository.save(comment);//???????????
+        
+         return "redirect:/users/" + profile + "/photos";   
+    }
+ 
+    
     
     public String getloggedUserProfile(){
         

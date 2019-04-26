@@ -5,20 +5,20 @@
         <header th:replace="fragments/layout :: allUsersNavi"></header>
  
         <br/><br/>
-        <h1>My Friends:</h1> 
+        <h3>MY FRIENDS:</h3> 
         <ul>
             <li th:each="friend: ${friends}">
                 <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
-                <form th:method="POST" th:action="@{/removeFriend/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE FRIEND"/></form>
+                <form th:method="POST" th:action="@{/removeFriend1/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE FRIEND"/></form>
             </li>
         </ul>
-        <h1>Possible Friends:</h1>
+        <h3>POSSIBLE FRIENDS:</h3>
         <ul>
             <li th:each="possibleFriend:${possibleFriends}">  
                 <a th:href="@{/users/{profile}(profile=${possibleFriend.profile})}" th:text="${possibleFriend.name}"></a>
             </li> 
         </ul>  
-        <h1>Other Users:</h1>
+        <h3>OTHER USERS:</h3>
         <ul>
             <li th:each="otherUser: ${otherUsers}">  
                 <a th:href="@{/users/{profile}(profile=${otherUser.profile})}" th:text="${otherUser.name}"></a>  

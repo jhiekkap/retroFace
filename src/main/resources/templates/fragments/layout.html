@@ -15,11 +15,14 @@
                         <a class="nav-link" th:href="@{/logout}">LOG OUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">WALL</a>
+                        <a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">MY WALL</a>
+                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">WALL</a>
+
                     </li>                                                             
                     <li class="nav-item">
                         <!--<a class="nav-link" th:href="@{/photos}">PHOTOS</a>-->
-                        <a class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">PHOTOS</a>
+                        <a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">MY PHOTOS</a>
+                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">PHOTOS</a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/{profile}/find (profile=${user.profile})}">FIND</a>

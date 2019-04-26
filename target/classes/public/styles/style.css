@@ -1,26 +1,40 @@
 body {
-  background-color: lightblue;
+  background-color: whitesmoke;
   padding: 10px;
   margin-left: 10px;
+  border-style: ridge;
+  border-color: lightgray; 
+  border-radius: 10px;
 }
 
-h1 {
-  color: white;
  
-   padding: 10px;
+.photos , .photo, .profilePhoto, .friends, .friendRequests, .messages,.message,.comments {
+  background-color: white;
+  padding: 20px;
+  margin:10px;
+  border-style: ridge;
+  border-color: lightgray; 
+  border-radius: 10px; 
 }
 
-h2 {
-  color: white;
- 
-   padding: 10px;
+.profilePhoto{
+    
+     
 }
-p {
-    color: white;
-    padding: 10px; 
+.friends{
+    
 }
-.photos {
-    display: inline;
-    /*border-style: solid;*/
-    color:black;
+
+.friendRequests{
+     
+}
+
+.messages{
+  
+}
+.message {
+    
+}
+.comments{
+    
 }

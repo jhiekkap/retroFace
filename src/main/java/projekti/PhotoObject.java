@@ -25,7 +25,7 @@ public class PhotoObject extends AbstractPersistable<Long> {
     
     @OneToMany
     private List<Like> likes = new ArrayList<>();
-    @OneToMany
+    @OneToMany (mappedBy = "photoObject")
     private List<Comment> comments = new ArrayList<>();
     
     @Lob
