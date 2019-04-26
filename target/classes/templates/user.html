@@ -3,6 +3,8 @@
     <head th:replace="fragments/layout :: head(text='Home')"></head> 
     <body> 
         <header th:replace="fragments/layout :: header"></header>
+        <div class="all">
+        <div class="left">
         <div class="profilePhoto"> 
             <div th:if="${user.profilePhoto == null}">
                 <span>No Profile Photo</span>
@@ -42,8 +44,14 @@
                 </ul> 
             </div>
         </div> 
+        </div>
+        <div class="right">
         <div class="messages">
-        <h3> MESSAGES: </h3>
+            <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
+                <input type="submit" value="SEND MESSAGE"> <br/>
+                <textarea rows="4" cols="53" name="content" form="usrform"></textarea>
+                 
+            </form>
         
         <ul style="list-style-type:none;">
             <li th:each="message: ${messages}">
@@ -69,13 +77,9 @@
             </li>
         </ul>
         
-        <form  th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
-         
-            <textarea rows="4" cols="50" name="content" form="usrform">
-             </textarea>
-             <input type="submit" value="Send"> </form>
         
-         
+        </div> 
+        </div>
         </div>
     </body>
 </html>
