@@ -33,6 +33,8 @@ public class Account extends AbstractPersistable<Long>{
     
     @OneToMany(mappedBy = "sender")
     private List<Comment> comments = new ArrayList<>();
+    @OneToMany(mappedBy = "sender")
+    private List<Likes> likes = new ArrayList<>();
   
     @OneToMany(mappedBy = "requester")
     private List<FriendRequest> friendRequests = new ArrayList<>();

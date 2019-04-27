@@ -9,6 +9,7 @@ projekti\PhotoRepository.class
 projekti\CustomUserDetailsService.class
 projekti\UserController.class
 projekti\DefaultController.class
+projekti\Services.class
 projekti\AccountRepository.class
 projekti\SignUpController.class
 projekti\Message.class

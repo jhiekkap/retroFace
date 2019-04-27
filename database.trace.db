@@ -2491,3 +2491,504 @@ alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key
 2019-04-27 12:28:06 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
 alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:18:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:18:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:18:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE MESSAGE_LIKES ADD CONSTRAINT FK9EGMHXL4E95G7C1GTIW5SJQ9B FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key (likes_id) references like [42001-197]
+2019-04-27 18:18:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:21:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:21:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:21:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE MESSAGE_LIKES ADD CONSTRAINT FK9EGMHXL4E95G7C1GTIW5SJQ9B FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key (likes_id) references like [42001-197]
+2019-04-27 18:21:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:22:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:22:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:22:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE MESSAGE_LIKES ADD CONSTRAINT FK9EGMHXL4E95G7C1GTIW5SJQ9B FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key (likes_id) references like [42001-197]
+2019-04-27 18:22:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:28:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:28:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:28:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE MESSAGE_LIKES ADD CONSTRAINT FK9EGMHXL4E95G7C1GTIW5SJQ9B FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key (likes_id) references like [42001-197]
+2019-04-27 18:28:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:34:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:34:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:34:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE MESSAGE_LIKES ADD CONSTRAINT FK9EGMHXL4E95G7C1GTIW5SJQ9B FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key (likes_id) references like [42001-197]
+2019-04-27 18:34:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE MESSAGE_LIKES ADD CONSTRAINT FK9EGMHXL4E95G7C1GTIW5SJQ9B FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table message_likes add constraint FK9egmhxl4e95g7c1gtiw5sjq9b foreign key (likes_id) references like [42001-197]
+2019-04-27 18:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE PHOTO_OBJECT_LIKES ADD CONSTRAINT FK7CBGGTSN2I1PIWTOHQ4VMP1EA FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table photo_object_likes add constraint FK7cbggtsn2i1piwtohq4vmp1ea foreign key (likes_id) references like [42001-197]
+2019-04-27 18:40:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:40:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 18:40:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 18:40:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:44:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:44:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 18:44:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 18:44:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:49:02 jdbc[15]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:157)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:319)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:356)
+	at org.springframework.boot.autoconfigure.orm.jpa.DatabaseLookup.getDatabase(DatabaseLookup.java:73)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaProperties.determineDatabase(JpaProperties.java:142)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.jpaVendorAdapter(JpaBaseConfiguration.java:113)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration$$EnhancerBySpringCGLIB$$d6a6c2d1.CGLIB$jpaVendorAdapter$4(<generated>)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration$$EnhancerBySpringCGLIB$$d6a6c2d1$$FastClassBySpringCGLIB$$e391eeb2.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration$$EnhancerBySpringCGLIB$$d6a6c2d1.jpaVendorAdapter(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at projekti.MyApplication.main(MyApplication.java:10)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 85 more
+2019-04-27 18:49:02 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:49:02 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 18:49:02 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 18:49:02 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 18:49:02 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:49:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:49:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 18:49:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 18:49:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 18:49:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:54:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:54:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 18:54:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 18:54:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 18:54:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 18:56:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 18:56:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 18:56:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 18:56:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 18:56:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:06:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:06:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:06:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:06:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:06:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:08:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:08:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:08:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:08:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:08:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:12:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:12:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:12:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:12:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:12:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:12:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:12:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:12:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:12:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:12:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:17:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:17:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:17:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:17:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:17:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:23:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:23:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:23:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:23:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:23:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:24:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:24:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:24:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:24:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:24:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:25:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:25:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:25:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:25:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:25:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:25:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:25:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:25:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:25:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:25:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:27:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:27:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:27:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:27:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:27:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:28:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:28:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:28:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:28:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:28:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:28:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:28:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:28:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:28:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:28:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:29:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:29:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:29:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:29:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:29:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:29:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:29:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:29:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:29:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:29:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:32:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:32:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:32:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:32:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:32:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:32:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:32:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:32:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:32:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:32:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]
+2019-04-27 19:33:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID BIGINT NOT NULL, MESSAGE_ID BIGINT, PHOTO_OBJECT_ID BIGINT, RECEIVER_ID BIGINT, SENDER_ID BIGINT, PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id bigint not null, message_id bigint, photo_object_id bigint, receiver_id bigint, sender_id bigint, primary key (id)) [42001-197]
+2019-04-27 19:33:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK70PTJAFC05VGD5FPADAQ5P1JS FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGE "; expected "identifier"; SQL statement:
+alter table like add constraint FK70ptjafc05vgd5fpadaq5p1js foreign key (message_id) references message [42001-197]
+2019-04-27 19:33:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FK2P52GG5B43TVR82W7ACA9R1JY FOREIGN KEY (PHOTO_OBJECT_ID) REFERENCES PHOTO_OBJECT "; expected "identifier"; SQL statement:
+alter table like add constraint FK2p52gg5b43tvr82w7aca9r1jy foreign key (photo_object_id) references photo_object [42001-197]
+2019-04-27 19:33:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKGRVPSLXTFF7LDNE8AOANXFT85 FOREIGN KEY (RECEIVER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKgrvpslxtff7ldne8aoanxft85 foreign key (receiver_id) references account [42001-197]
+2019-04-27 19:33:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKTA3GV0FYUR240XKOR49EBTMTW FOREIGN KEY (SENDER_ID) REFERENCES ACCOUNT "; expected "identifier"; SQL statement:
+alter table like add constraint FKta3gv0fyur240xkor49ebtmtw foreign key (sender_id) references account [42001-197]

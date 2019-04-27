@@ -28,8 +28,9 @@ public class Message extends AbstractPersistable<Long>{
     private LocalDate date;
     private String content;
       
-    @OneToMany
-    private List<Like> likes = new ArrayList<>();
+     
+    @OneToMany(mappedBy = "message")
+    private List<Likes> likes = new ArrayList<>();
     
     @OneToMany(mappedBy = "message")
     private List<Comment> comments = new ArrayList<>(); 

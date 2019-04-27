@@ -21,10 +21,11 @@ public class PhotoObject extends AbstractPersistable<Long> {
     private String contentType;
     private Long contentLength;
     private String title;
-     
-    @OneToMany
-    private List<Like> likes = new ArrayList<>();
-    @OneToMany (mappedBy = "photoObject")
+//     
+    
+    @OneToMany(mappedBy = "photoObject")
+    private List<Likes> likes = new ArrayList<>();
+    @OneToMany(mappedBy = "photoObject")
     private List<Comment> comments = new ArrayList<>();
     
     @Lob

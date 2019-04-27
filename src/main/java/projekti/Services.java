@@ -30,6 +30,8 @@ public class Services {
     @Autowired
     private CommentRepository commentRepository; 
     @Autowired
+    private LikeRepository likeRepository;
+    @Autowired
     PasswordEncoder passwordEncoder;
     
     
@@ -204,6 +206,50 @@ public class Services {
         photo.getComments().add(comment);
         photoRepository.save(photo);
         commentRepository.save(comment);//???????????
+    }
+    
+    public void likeMessage(Long id, String profile){
+        
+        Message message = messageRepository.getOne(id);
+        Account sender = getLoggedUser();
+        Account receiver = accountRepository.findByProfile(profile);
+        Likes like = new Likes();
+        like.setSender(sender); 
+        like.setReceiver(receiver);
+        like.setMessage(messageRepository.getOne(id)); 
+        message.getLikes().add(like);
+        likeRepository.save(like);
+        messageRepository.save(message); 
+    }
+    
+    public boolean hasAlreadyLikedThisMessage(Long id){
+        
+        Message message = messageRepository.getOne(id);
+        Account sender = getLoggedUser();
+        
+        return likeRepository.findByMessageAndSender(message, sender) == null; 
+    }
+    
+    public void likePhoto(Long id, String profile){
+        
+        PhotoObject photo = photoRepository.getOne(id);
+        Account sender = getLoggedUser();
+        Account receiver = accountRepository.findByProfile(profile);
+        Likes like = new Likes();
+        like.setSender(sender); 
+        like.setReceiver(receiver);
+        like.setPhotoObject(photoRepository.getOne(id)); 
+        photo.getLikes().add(like);
+        likeRepository.save(like);
+        photoRepository.save(photo); 
+    }
+    
+     public boolean hasAlreadyLikedThisPhoto(Long id){
+        
+        PhotoObject photo = photoRepository.getOne(id);
+        Account sender = getLoggedUser();
+        
+        return likeRepository.findByPhotoObjectAndSender(photo, sender) == null; 
     }
     
     public String getLoggedUserProfile(){

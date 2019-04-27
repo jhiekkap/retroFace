@@ -1,60 +1,48 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/layout :: head(text='Photos')"></head>
-    <body>
-        
-        <header th:replace="fragments/layout :: header"></header>
-         
-         
+    <body> 
+        <header th:replace="fragments/layout :: header"></header> 
         <div th:if="${isLogged}"><h3>MY PHOTOS:</h3></div> 
-        <div th:if="${isLogged != true}"><h3  th:text="${user.name} + '´s Photos:'"></h3></div> 
-        
-        <div th:if="${photos.empty}">
-            <span>No photos</span>
-        </div>
-  
-        <div class="photos" th:if="${!photos.empty}">  
-            <ul th:each="photo: ${photos}" style="list-style-type:none;">
-                
-                <li class="photo"> 
-                    <img th:src="@{/photos/{id}/content(id=${photo.id})}"/> 
-                    <p th:text="${photo.title}"></p>  
-                    <div th:if="${isLogged}">
-                        <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
-                        <form th:action="@{/users/{profile}/photos/{id}(profile=${user.profile}, id=${photo.id})}" th:method="POST"><input type="submit" value="Set Profile Photo"/></form>                    
+            <div th:if="${isLogged != true}"><h3  th:text="${user.name} + '´s Photos:'"></h3></div>  
+                <div th:if="${photos.empty}"> <span>No photos</span></div> 
+                    <div class="photos" th:if="${!photos.empty}">  
+                        <ul th:each="photo: ${photos}" style="list-style-type:none;"> 
+                            <li class="photo"> 
+                                <img th:src="@{/photos/{id}/content(id=${photo.id})}"/> 
+                                <p th:text="${photo.title}"></p>  
+                                <form th:method="POST" th:action="@{/likePhoto/{id}/{profile}(id=${photo.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
+                                    <div th:if="${!photo.likes.empty}"><p th:text="${photo.likes.size()} + ' LIKES'"></p></div> 
+                                    <div th:if="${isLogged}">
+                                        <form th:action="@{/photos/{id}(id=${photo.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
+                                        <form th:action="@{/users/{profile}/photos/{id}(profile=${user.profile}, id=${photo.id})}" th:method="POST"><input type="submit" value="Set Profile Photo"/></form>                    
+                                    </div> 
+                                    <div class="comments">
+                                        <ul  style="list-style-type:none;">
+                                            <form th:method="POST" th:action="@{/commentsPhoto/{id}/by/{profile}(id=${photo.id}, profile=${user.profile})}" id="comment">                        
+                                                <label for="comment">Comment:</label>
+                                                <input type="text" name="content" id="comment"/> 
+                                                <input type="submit" value="Send"/>
+                                            </form>
+                                            <li th:each="comment: ${photo.comments}">
+                                                <span th:text="${comment.sender.name}"></span>
+                                                <span th:text="${comment.date}"></span>
+                                                <p th:text="${comment.content}"></p> 
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </li> 
+                        </ul>
+                </div> 
+                <div th:if="${isLogged}">
+                    <div th:if="${count < 10}"> 
+                        <p>Add more photos:</p> 
+                        <form method="POST" action="/photos" enctype="multipart/form-data"> 
+                            <input type="file" name="file" id="file"/>
+                            <input type="text" id="title" name="title" placeholder="title" >  
+                            <input type="submit" value="Add!"/>
+                         </form>
                     </div>
-                    <p>Like Button</p>
-                    <div class="comments">
-                    <ul  style="list-style-type:none;">
-                        <form th:method="POST" th:action="@{/commentsPhoto/{id}/by/{profile}(id=${photo.id}, profile=${user.profile})}" id="comment">                        
-                            <label for="comment">Comment:</label>
-                            <input type="text" name="content" id="comment"/> 
-                            <input type="submit" value="Send"/>
-                        </form>
-                        <li th:each="comment: ${photo.comments}">
-                            <span th:text="${comment.sender.name}"></span>
-                            <span th:text="${comment.date}"></span>
-                            <p th:text="${comment.content}"></p> 
-                        </li>
-                    </ul>
-                    </div>
-                </li>
-                
-            </ul>
-        </div>
-        
-        <div th:if="${isLogged}">
-        <div th:if="${count < 10}"> 
-            <p>Add more photos:</p> 
-            <form method="POST" action="/photos" enctype="multipart/form-data">
-            <!--<form method="POST" action="@{/users/{profile}/photos(profile=${user.profile})}" enctype="multipart/form-data">-->
-            <input type="file" name="file" id="file"/>
-            <input type="text" id="title" name="title" placeholder="title" >  
-            <input type="submit" value="Add!"/>
-            </form>
-         </div>
-        </div>
-
-
+                </div> 
     </body>
 </html>

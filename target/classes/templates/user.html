@@ -4,82 +4,71 @@
     <body> 
         <header th:replace="fragments/layout :: header"></header>
         <div class="all">
-        <div class="left">
-        <div class="profilePhoto"> 
-            <div th:if="${user.profilePhoto == null}">
-                <span>No Profile Photo</span>
-            </div>
-            <div th:if="${user.profilePhoto != null}"> 
-                <img id="profilePic" th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/>  
-            </div>  
-        <p th:text="${user.name}" >My name</p>
-        </div> 
-        <div class="friends">
-            <div th:if="${isLogged}"><h4>MY FRIENDS:</h4></div> 
-            <div th:if="${isLogged != true}"><h3 th:text="${user.name} + '´s Friends:'"></h3></div> 
-        
-            <div th:if="${friends.empty}">
-                <p>No Friends</p>
-            </div>
-                <ul style="list-style-type:none;">
-                    <li th:each="friend: ${friends}"> 
-                        <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
-                        <div th:if="${isLogged}"><form th:method="POST" th:action="@{/removeFriend2/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE"/></form></div>   
-                    </li>
-                </ul> 
-        </div>
-        <div th:if="${!friendRequests.empty}" class="friendRequests">
-            <div th:if="${isLogged}">
-                <h4>FRIEND REQUESTS:</h4>
-            <div th:if="${friendRequests.empty}">
-                 <p>No Friend Requests</p>
-            </div>  
-                <ul style="list-style-type:none;">
-                    <li th:each="request: ${friendRequests}">  
-                        <a th:href="@{/users/{profile}(profile=${request.requester.profile})}" th:text="${request.requester.name}"></a>
-                        <span th:text="${request.date}"></span> 
-                        <form th:method="POST" th:action="@{/makingFriendsWith/{profile}(profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
-                        <form th:method="POST" th:action="@{/declineFriendRequestOf/{profile}(profile=${request.requester.profile})}"><input type="submit" value="DECLINE"/></form> 
-                    </li>
-                </ul> 
-            </div>
-        </div> 
-        </div>
-        <div class="right">
-        <div class="messages">
-            <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
-                <input type="submit" value="SEND MESSAGE"> <br/>
-                <textarea rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea>
-                 
-            </form>
-        
-        <ul style="list-style-type:none;">
-            <li th:each="message: ${messages}">
-                <div class="message"> 
-                    <span th:text="${message.sender.name}"></span>
-                    <span th:text="${message.date}"></span> 
-                    <p th:text="${message.content}"></p> 
-                <div class="comments">
-                    <ul  style="list-style-type:none;">
-                        <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
-                            <label for="comment">Comment:</label>
-                            <input type="text" name="content" id="comment"/> 
-                            <input type="submit" value="SEND"/>
-                        </form>
-                        <li th:each="comment: ${message.comments}">
-                            <span th:text="${comment.sender.name}"></span>
-                            <span th:text="${comment.date}"></span>
-                            <p th:text="${comment.content}"></p> 
-                        </li>
-                    </ul>
+            <div class="left">
+                <div class="profilePhoto"> 
+                    <div th:if="${user.profilePhoto == null}"><span>No Profile Photo</span></div>
+                    <div th:if="${user.profilePhoto != null}"><img id="profilePic" th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/></div>  
+                    <p th:text="${user.name}" >My name</p>
+                </div> 
+                <div class="friends">
+                    <div th:if="${isLogged}"><h4>MY FRIENDS:</h4></div> 
+                        <div th:if="${isLogged != true}"><h3 th:text="${user.name} + '´s Friends:'"></h3></div>  
+                        <div th:if="${friends.empty}"><p>No Friends</p></div>
+                            <ul style="list-style-type:none;">
+                                <li th:each="friend: ${friends}"> 
+                                    <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
+                                    <div th:if="${isLogged}"><form th:method="POST" th:action="@{/removeFriend2/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE"/></form></div>   
+                                </li>
+                            </ul> 
                 </div>
-                </div>    
-            </li>
-        </ul>
-        
-        
-        </div> 
-        </div>
+                <div th:if="${!friendRequests.empty}" class="friendRequests">
+                    <div th:if="${isLogged}">
+                        <h4>FRIEND REQUESTS:</h4>
+                        <div th:if="${friendRequests.empty}"><p>No Friend Requests</p></div>  
+                        <ul style="list-style-type:none;">
+                            <li th:each="request: ${friendRequests}">  
+                                <a th:href="@{/users/{profile}(profile=${request.requester.profile})}" th:text="${request.requester.name}"></a>
+                                <span th:text="${request.date}"></span> 
+                                <form th:method="POST" th:action="@{/makingFriendsWith/{profile}(profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
+                                <form th:method="POST" th:action="@{/declineFriendRequestOf/{profile}(profile=${request.requester.profile})}"><input type="submit" value="DECLINE"/></form> 
+                            </li>
+                        </ul> 
+                    </div>
+                </div> 
+            </div>
+            <div class="right">
+                <div class="messages">
+                    <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
+                        <input type="submit" value="SEND MESSAGE"> <br/>
+                        <textarea rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea> 
+                    </form> 
+                    <ul style="list-style-type:none;">
+                        <li th:each="message: ${messages}">
+                            <div class="message">  
+                                <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
+                                    <div th:if="${!message.likes.empty}"><p th:text="${message.likes.size()} + ' LIKES'"></p></div> 
+                                    <span th:text="${message.sender.name}"></span>
+                                    <span th:text="${message.date}"></span> 
+                                    <p th:text="${message.content}"></p> 
+                                    <div class="comments">
+                                        <ul  style="list-style-type:none;">
+                                            <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
+                                                <label for="comment">Comment:</label>
+                                                <input type="text" name="content" id="comment"/> 
+                                                <input type="submit" value="SEND"/>
+                                            </form>
+                                            <li th:each="comment: ${message.comments}">
+                                                <span th:text="${comment.sender.name}"></span>
+                                                <span th:text="${comment.date}"></span>
+                                                <p th:text="${comment.content}"></p> 
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </div>    
+                            </li>
+                    </ul> 
+                 </div> 
+            </div>
         </div>
     </body>
 </html>
