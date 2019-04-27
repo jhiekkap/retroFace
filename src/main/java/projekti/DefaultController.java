@@ -50,18 +50,7 @@ public class DefaultController {
     @GetMapping("/logout")
     public String logout() { 
         return "index"; 
-    }
-    
-    @GetMapping("/asd")
-    public String asd(Model model) { 
-//        
-        Account janina = accountRepository.findByProfile("BabyJane");
-        model.addAttribute("user", janina);
-//        model.addAttribute("requests", janina.getFriendRequests());
-        
-        
-        return "asd"; 
-    }
+    } 
 } 
      
      

@@ -25,7 +25,7 @@
                         <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">PHOTOS</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}/find (profile=${user.profile})}">FIND</a>
+                        <a class="nav-link" th:href="@{/find}">FIND</a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
@@ -66,9 +66,9 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/logout}">LOG OUT</a>
                     </li>
-                    <li class="nav-item">
+<!--                    <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">WALL</a>
-                    </li> 
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
@@ -86,7 +86,7 @@
                         <a class="nav-link" th:href="@{/logout}">LOG OUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}/find (profile=${loggedUser.profile})}">FIND</a>
+                        <a class="nav-link" th:href="@{/find}">FIND</a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>

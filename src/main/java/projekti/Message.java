@@ -4,8 +4,7 @@ package projekti;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.Entity; 
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -20,8 +19,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Message extends AbstractPersistable<Long>{
-    
-    
+     
     @ManyToOne
     private Account sender;
     @ManyToOne
@@ -34,6 +32,5 @@ public class Message extends AbstractPersistable<Long>{
     private List<Like> likes = new ArrayList<>();
     
     @OneToMany(mappedBy = "message")
-    private List<Comment> comments = new ArrayList<>();
-    
+    private List<Comment> comments = new ArrayList<>(); 
 }

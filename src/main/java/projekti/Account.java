@@ -4,10 +4,8 @@ package projekti;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,15 +17,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account extends AbstractPersistable<Long>{
-
-      
+ 
     private String name;  
     private String username;
     private String password; 
     private String profile; 
+     
     
-     
-     
     @ManyToOne
     private PhotoObject  profilePhoto;
     
@@ -44,6 +40,5 @@ public class Account extends AbstractPersistable<Long>{
     private List<PhotoObject> photos = new ArrayList<>();
     
     @OneToMany(mappedBy = "friend1")
-    private List<Friendship> friendships = new ArrayList<>();
-     
+    private List<Friendship> friendships = new ArrayList<>(); 
 }

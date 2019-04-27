@@ -21,8 +21,7 @@ public class PhotoObject extends AbstractPersistable<Long> {
     private String contentType;
     private Long contentLength;
     private String title;
-    
-    
+     
     @OneToMany
     private List<Like> likes = new ArrayList<>();
     @OneToMany (mappedBy = "photoObject")
@@ -30,6 +29,5 @@ public class PhotoObject extends AbstractPersistable<Long> {
     
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    private byte[] content;
- 
+    private byte[] content; 
 }

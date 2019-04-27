@@ -24,13 +24,13 @@
                 <ul style="list-style-type:none;">
                     <li th:each="friend: ${friends}"> 
                         <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
-                        <div th:if="${isLogged}"><form th:method="POST" th:action="@{/removeFriend2/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE FRIEND"/></form></div>   
+                        <div th:if="${isLogged}"><form th:method="POST" th:action="@{/removeFriend2/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE"/></form></div>   
                     </li>
                 </ul> 
         </div>
         <div th:if="${!friendRequests.empty}" class="friendRequests">
             <div th:if="${isLogged}">
-                <h3>FRIEND REQUESTS:</h3>
+                <h4>FRIEND REQUESTS:</h4>
             <div th:if="${friendRequests.empty}">
                  <p>No Friend Requests</p>
             </div>  
@@ -38,7 +38,7 @@
                     <li th:each="request: ${friendRequests}">  
                         <a th:href="@{/users/{profile}(profile=${request.requester.profile})}" th:text="${request.requester.name}"></a>
                         <span th:text="${request.date}"></span> 
-                        <form th:method="POST" th:action="@{/makingFriendsWith1/{profile}(profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
+                        <form th:method="POST" th:action="@{/makingFriendsWith/{profile}(profile=${request.requester.profile})}"><input type="submit" value="ACCEPT"/></form>
                         <form th:method="POST" th:action="@{/declineFriendRequestOf/{profile}(profile=${request.requester.profile})}"><input type="submit" value="DECLINE"/></form> 
                     </li>
                 </ul> 
@@ -49,7 +49,7 @@
         <div class="messages">
             <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
                 <input type="submit" value="SEND MESSAGE"> <br/>
-                <textarea rows="4" cols="53" name="content" form="usrform"></textarea>
+                <textarea rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea>
                  
             </form>
         
@@ -64,7 +64,7 @@
                         <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
                             <label for="comment">Comment:</label>
                             <input type="text" name="content" id="comment"/> 
-                            <input type="submit" value="Send"/>
+                            <input type="submit" value="SEND"/>
                         </form>
                         <li th:each="comment: ${message.comments}">
                             <span th:text="${comment.sender.name}"></span>

@@ -1,9 +1,7 @@
  
 package projekti;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,16 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
+ 
 @Controller
 public class SignUpController {
      
     @Autowired
-    AccountRepository accountRepository;
-
+    AccountRepository accountRepository;  
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private Services services;
 
     @GetMapping("/signUp")
     public String list(Model model) {
@@ -32,21 +28,11 @@ public class SignUpController {
     public String add(@RequestParam String name, @RequestParam String username, 
             @RequestParam String password, @RequestParam String profile){
         
-        if (accountRepository.findByProfile(profile) != null) {
-            System.out.println("!!!!!!!!!!!!!!!!!!!profile already in use!!!!!!!!!!!!!!!!!");
+        if (accountRepository.findByProfile(profile) != null) { 
             return "redirect:/signUp";
-        }
-        
-        Account a = new Account();
-        System.out.println("SIGNED UP AS A NEW USER: " + name + "\n"
-                + username + "\n" + password + "\n" +profile);
-         
-        a.setName(name); 
-        a.setUsername(username);
-        a.setPassword(passwordEncoder.encode(password)); 
-        a.setProfile(profile);
-        accountRepository.save(a);
-        
+        } 
+        services.signUp(name, username, password, profile); 
+            
         return "redirect:/user";
     }
 }

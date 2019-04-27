@@ -1,14 +1,7 @@
 package projekti;
 
-import java.io.IOException;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import java.io.IOException; 
+import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +20,8 @@ public class PhotoController {
     private PhotoRepository photoRepository;
     @Autowired
     private AccountRepository accountRepository;
-     
+    @Autowired
+    private Services services;
     
      
     @GetMapping("/photos")
@@ -40,21 +34,13 @@ public class PhotoController {
     @GetMapping("/users/{profile}/photos")
     public String getAllUserPhotos (Model model,
             @PathVariable String profile){
-        
-        Account account = accountRepository.findByProfile(profile);
-        List<PhotoObject> userPhotos = account.getPhotos();
-        
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        Account  loggedUser = accountRepository.findByUsername(username);
-        model.addAttribute("loggedUser", loggedUser); 
-        model.addAttribute("user", account);
-        model.addAttribute("photos", userPhotos); 
-        model.addAttribute("count", userPhotos.size());
-        if(loggedUser.equals(account)){
-                model.addAttribute("isLogged", true);
-            }
-        
+          
+        model.addAttribute("loggedUser", services.getLoggedUser()); 
+        model.addAttribute("user", accountRepository.findByProfile(profile));
+        model.addAttribute("photos", accountRepository.findByProfile(profile).getPhotos()); 
+        model.addAttribute("count", accountRepository.findByProfile(profile).getPhotos().size());
+        model.addAttribute("isLogged", services.isLoggedUser(accountRepository.findByProfile(profile)));
+              
         return "photos";
     }
      
@@ -64,69 +50,29 @@ public class PhotoController {
          
         return photoRepository.getOne(id).getContent();
     }
-    
-    
- 
+     
     @PostMapping("/users/{profile}/photos/{id}")
     public String setProfilePhoto(@PathVariable String profile, @PathVariable Long id){
         
-        Account account = accountRepository.findByProfile(profile);
-        PhotoObject photo = photoRepository.getOne(id);
-        account.setProfilePhoto(photo);
-        accountRepository.save(account);
+        services.setProfilePhoto(profile, id);
         
-        return "redirect:/users/" + getloggedUserProfile();   
+        return "redirect:/users/" + services.getLoggedUserProfile();   
     }
     
-    @PostMapping("/photos") // PARANNETU VANHA.........
+    @PostMapping("/photos") 
     public String savePhoto(@RequestParam("file") MultipartFile file,
             @RequestParam("title") String title) throws IOException {
  
-        PhotoObject fo = new PhotoObject();
-
-        fo.setName(file.getOriginalFilename());
-        fo.setContentType(file.getContentType());
-        fo.setContentLength(file.getSize());
-        fo.setContent(file.getBytes());
-        fo.setTitle(title);
-     
-        photoRepository.save(fo);
-        getloggedUser().getPhotos().add(fo);
-        accountRepository.save(getloggedUser()); 
-        
-        return "redirect:/users/" + getloggedUserProfile() + "/photos";  
+        services.savePhoto(file, title);
+         
+        return "redirect:/users/" + services.getLoggedUserProfile() + "/photos";  
 }
     
     @DeleteMapping("/photos/{id}")
-    public String delete(@PathVariable Long id) {
+    public String deletePhoto(@PathVariable Long id) {
         
-        PhotoObject photo = photoRepository.getOne(id);
-        Account account = getloggedUser();
-        account.getPhotos().remove(photo);
-        accountRepository.save(account);
-        
-        return "redirect:/users/" + getloggedUserProfile() + "/photos";     
-    }
-    
-    
-    
-    public String getloggedUserProfile(){
-        
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        Account  loggedUser = accountRepository.findByUsername(username); 
-        String profile = loggedUser.getProfile();
-        
-        return profile; 
-    }
-    
-    public Account getloggedUser(){
-        
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        Account  loggedUser = accountRepository.findByUsername(username);
-        
-        return loggedUser;
-    }
-    
+        services.deletePhoto(id);
+         
+        return "redirect:/users/" + services.getLoggedUserProfile() + "/photos";     
+    } 
 }
