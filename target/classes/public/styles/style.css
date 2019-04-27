@@ -13,18 +13,23 @@ header {
 }
 
 .all {
-   margin-left: 200px; 
+   margin-left: auto; 
+   
 }
 
  
 .photos , .photo, .profilePhoto, .friends, .friendRequests, .messages,.message,.comments {
   background-color: white;
   padding: 20px;
-  margin:5px;
+  margin-top:10px;
   //border-style: ridge;
   //border-color: lightgray; 
   border-radius: 10px; 
   border: 1px solid #777;
+}
+#profilePic {
+    
+    width:100%;
 }
 
 .left {
@@ -45,7 +50,7 @@ header {
 }
 
 .profilePhoto{
-    
+     
      
 }
 .friends{

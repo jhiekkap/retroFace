@@ -10,12 +10,12 @@
                 <span>No Profile Photo</span>
             </div>
             <div th:if="${user.profilePhoto != null}"> 
-                <img th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/>  
+                <img id="profilePic" th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/>  
             </div>  
         <p th:text="${user.name}" >My name</p>
         </div> 
         <div class="friends">
-            <div th:if="${isLogged}"><h3>MY FRIENDS:</h3></div> 
+            <div th:if="${isLogged}"><h4>MY FRIENDS:</h4></div> 
             <div th:if="${isLogged != true}"><h3 th:text="${user.name} + '´s Friends:'"></h3></div> 
         
             <div th:if="${friends.empty}">
