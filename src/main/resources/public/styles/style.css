@@ -45,6 +45,10 @@ header {
   .left, .right {
     width: 100%;
   }
+  .messages{
+  overflow: auto;
+  max-width: 400px;
+}
 }
 
 .profilePhoto{
@@ -61,7 +65,7 @@ header {
 
 .messages{
   overflow: auto;
-  max-width: 100%;
+  max-width: 600px;
 }
 .message {
       
