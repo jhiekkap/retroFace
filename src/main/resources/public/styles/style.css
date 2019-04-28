@@ -8,11 +8,12 @@ body {
 } 
 
 header {
-   
+    margin-left: auto;
+  margin-right: auto;
 }
 
 .all {
-   
+   margin-left: auto; 
    
 }
 
@@ -24,28 +25,26 @@ header {
   border-radius: 10px; 
   border: 1px solid #777;
 }
-#profilePic { 
+#profilePic {
+    
     width:100%;
 }
 
 .left {
-   
+  float: left;
   width: 30%;
   padding: 15px;
 }
 .right {
- 
+  float: left;
   width: 70%;
   padding: 15px;
 }
 
 @media screen and (max-width:600px) {
-    .left, .right {
-         width: 100%;
-    }
-    .message {
-         
-    }
+  .left, .right {
+    width: 100%;
+  }
 }
 
 .profilePhoto{
