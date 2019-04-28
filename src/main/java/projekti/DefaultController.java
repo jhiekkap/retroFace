@@ -19,26 +19,26 @@ public class DefaultController {
     public String root() { 
         
         if(accountRepository.count() == 0){
-            Account janina = new Account();
-            janina.setName("Janina");
-            janina.setUsername("janina");
-            janina.setPassword(passwordEncoder.encode("pjotr"));
-            janina.setProfile("BabyJane");
-            accountRepository.save(janina);
+            Account pirkko = new Account();
+            pirkko.setName("Pirkko");
+            pirkko.setUsername("pirkko");
+            pirkko.setPassword(passwordEncoder.encode("liisa"));
+            pirkko.setProfile("theQueen");
+            accountRepository.save(pirkko);
         
-            Account jari = new Account();
-            jari.setName("Jari");
-            jari.setUsername("palle");
-            jari.setPassword(passwordEncoder.encode("pelle"));
-            jari.setProfile("pallepelle");
-            accountRepository.save(jari);
+            Account palle = new Account();
+            palle.setName("Björn");
+            palle.setUsername("palle");
+            palle.setPassword(passwordEncoder.encode("pelle"));
+            palle.setProfile("BusinessMan");
+            accountRepository.save(palle);
         
-            Account pjotr = new Account();
-            pjotr.setName("Pjotr");
-            pjotr.setUsername("pietari");
-            pjotr.setPassword(passwordEncoder.encode("daappa"));
-            pjotr.setProfile("pietaridaappa");
-            accountRepository.save(pjotr);
+            Account eki = new Account();
+            eki.setName("Erkki");
+            eki.setUsername("eki");
+            eki.setPassword(passwordEncoder.encode("liika"));
+            eki.setProfile("Liikanen");
+            accountRepository.save(eki);
         }
          
         return "redirect:/index"; 

@@ -5,8 +5,18 @@ package projekti;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+ 
+ 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+ 
+ 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,7 +53,12 @@ public class Services {
     
     public List<Message> getMessages(Account account){
         
-        List<Message> messages = messageRepository.findByReceiver(account);
+        Pageable pageable = PageRequest.of(0, 25, Sort.by("date").descending());
+        List<Message> messages = messageRepository.findByReceiver(account, pageable);
+        for(Message message:messages){
+            message.getComments().sort(Comparator.comparing(o -> o.getDate())); 
+            Collections.reverse(message.getComments());
+        }
         return messages;
     }
      
@@ -188,9 +203,11 @@ public class Services {
         comment.setMessage(messageRepository.getOne(id));
            
         Message message = messageRepository.getOne(id); 
-        message.getComments().add(comment);
-        messageRepository.save(message);
-        commentRepository.save(comment);//??????????? 
+        if(message.getComments().size() < 10){
+            message.getComments().add(comment);
+            messageRepository.save(message);
+            commentRepository.save(comment); 
+        }
     }
     
     public void  commentPhoto(Long id, String profile, String content){

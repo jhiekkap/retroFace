@@ -1,2 +1,26 @@
 
-pölöpölöp
+  Viestit näytetään seinällä niiden saapumisjärjestyksessä siten,
+ että seinällä näkyy aina korkeintaan 25 uusinta viestiä.
+
+ Kuvien ja viestien yhteydessä näytetään aina korkeintaan 10 uusinta kommenttia.
+
+
+Työ palautetaan TMC:hen, Moodleen ja Herokuun. Palautus TMC:hen tapahtuu TMC:n 
+submit-nappia painamalla ja sen voi tehdä useaan otteeseen. Vastaavasti Moodleen 
+voi tehdä useamman palautuksen. Vain viimeinen palautus arvioidaan. Sovellus tulee myös lisätä Herokuun.
+ Huomaa, että TMC-palautuksessa saatat saada virheen “Failed to process submission.
+ Likely sent in incorrect format”. Tästä ei kannata välittää, palautus menee silti läpi.
+
+Moodleen työstä palautetaan sekä linkki sovelluksen Herokussa toimivaan versioon 
+että sovelluksen lähdekoodit sisältävä zip-paketti. Lähdekoodit sisältävä zip-paketti
+ ei saa sisältää sovelluksen käännetyn version sisältävää target-kansiota. 
+
+
+
+Arviointi
+
+- onko sovelluksessa N+1 -kyselyn ongelmaa, 
+
+
+
+- Sovelluksen automaattiset testit ja niiden laatu.

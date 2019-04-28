@@ -64,8 +64,8 @@ header {
   max-width: 600px;
 }
 .message {
-     //float: left;
-     display: block;
+      
+     display: inline-block;
      max-width: 460px;
      
 }
