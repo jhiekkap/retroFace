@@ -43,7 +43,7 @@
                         <textarea rows="4" cols="25" name="content" form="usrform" placeholder="write!"></textarea> 
                     </form> 
                     <ul style="list-style-type:none;">
-                        <li th:each="message: ${messages}">
+                        <div th:each="message: ${messages}">
                             <div class="message">  
                                 <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
                                     <div th:if="${!message.likes.empty}"><p th:text="${message.likes.size()} + ' LIKES'"></p></div> 
@@ -57,15 +57,15 @@
                                                 <input type="text" name="content" id="comment"/> 
                                                 <input type="submit" value="SEND"/>
                                             </form>
-                                            <li th:each="comment: ${message.comments}">
+                                            <div th:each="comment: ${message.comments}">
                                                 <span th:text="${comment.sender.name}"></span>
                                                 <span th:text="${comment.date}"></span>
                                                 <p th:text="${comment.content}"></p> 
-                                            </li>
+                                            </div>
                                         </ul>
                                     </div>
                             </div>    
-                            </li>
+                        </div>
                     </ul> 
                  </div> 
             </div>
