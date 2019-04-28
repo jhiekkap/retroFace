@@ -3,7 +3,6 @@ projekti\MessageRepository.class
 projekti\Comment.class
 projekti\LikeRepository.class
 projekti\Friendship.class
-projekti\Like.class
 projekti\PhotoController.class
 projekti\PhotoRepository.class
 projekti\CustomUserDetailsService.class
@@ -11,6 +10,7 @@ projekti\UserController.class
 projekti\DefaultController.class
 projekti\Services.class
 projekti\AccountRepository.class
+projekti\Likes.class
 projekti\SignUpController.class
 projekti\Message.class
 projekti\FriendRequest.class

@@ -29,6 +29,6 @@ public class PhotoObject extends AbstractPersistable<Long> {
     private List<Comment> comments = new ArrayList<>();
     
     @Lob
-    @Basic(fetch = FetchType.LAZY)
+//    @Basic(fetch = FetchType.LAZY)
     private byte[] content; 
 }

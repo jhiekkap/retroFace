@@ -46,7 +46,7 @@ public class PhotoController {
      
     @GetMapping(path = "/photos/{id}/content", produces = "image/jpg")
     @ResponseBody
-    public byte[] getFromAllPhotos(@PathVariable long id) {
+    public byte[] getPhoto(@PathVariable long id) {
          
         return photoRepository.getOne(id).getContent();
     }
@@ -54,8 +54,7 @@ public class PhotoController {
     @PostMapping("/users/{profile}/photos/{id}")
     public String setProfilePhoto(@PathVariable String profile, @PathVariable Long id){
         
-        services.setProfilePhoto(profile, id);
-        
+        services.setProfilePhoto(profile, id); 
         return "redirect:/users/" + services.getLoggedUserProfile();   
     }
     
@@ -63,16 +62,14 @@ public class PhotoController {
     public String savePhoto(@RequestParam("file") MultipartFile file,
             @RequestParam("title") String title) throws IOException {
  
-        services.savePhoto(file, title);
-         
+        services.savePhoto(file, title); 
         return "redirect:/users/" + services.getLoggedUserProfile() + "/photos";  
 }
     
     @DeleteMapping("/photos/{id}")
     public String deletePhoto(@PathVariable Long id) {
         
-        services.deletePhoto(id);
-         
+        services.deletePhoto(id); 
         return "redirect:/users/" + services.getLoggedUserProfile() + "/photos";     
     } 
 }
