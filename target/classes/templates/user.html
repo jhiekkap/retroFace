@@ -42,7 +42,7 @@
                         <input type="submit" value="SEND MESSAGE"> <br/>
                         <textarea rows="4" cols="25" name="content" form="usrform" placeholder="write!"></textarea> 
                     </form> 
-                    <ul style="list-style-type:none;">
+                    <div style="list-style-type:none;">
                         <div th:each="message: ${messages}">
                             <div class="message">  
                                 <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
@@ -51,7 +51,7 @@
                                     <span th:text="${message.date}"></span> 
                                     <p th:text="${message.content}"></p> 
                                     <div class="comments">
-                                        <ul  style="list-style-type:none;">
+                                        <div  style="list-style-type:none;">
                                             <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
                                                 <label for="comment">Comment:</label>
                                                 <input type="text" name="content" id="comment"/> 
@@ -62,11 +62,11 @@
                                                 <span th:text="${comment.date}"></span>
                                                 <p th:text="${comment.content}"></p> 
                                             </div>
-                                        </ul>
+                                        </div>
                                     </div>
                             </div>    
                         </div>
-                    </ul> 
+                    </div> 
                  </div> 
             </div>
         </div>
