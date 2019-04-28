@@ -25,8 +25,7 @@ header {
   border-radius: 10px; 
   border: 1px solid #777;
 }
-#profilePic {
-    
+#profilePic { 
     width:100%;
 }
 
@@ -42,13 +41,12 @@ header {
 }
 
 @media screen and (max-width:600px) {
-.left, .right {
-  width: 100%;
-}
-
-.message {
-    max-width: 80%;
-}
+    .left, .right {
+         width: 100%;
+    }
+    .message {
+         max-width: 50%;
+    }
 }
 
 .profilePhoto{
