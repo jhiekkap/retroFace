@@ -42,12 +42,12 @@ header {
 }
 
 @media screen and (max-width:600px) {
-  .left, .right {
-    width: 100%;
-  }
-  .messages{
-  overflow: auto;
-  max-width: 400px;
+.left, .right {
+  width: 100%;
+}
+
+.message {
+    max-width: 400px;
 }
 }
 

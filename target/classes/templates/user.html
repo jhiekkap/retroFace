@@ -40,7 +40,7 @@
                 <div class="messages">
                     <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
                         <input type="submit" value="SEND MESSAGE"> <br/>
-                        <textarea rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea> 
+                        <textarea rows="4" cols="25" name="content" form="usrform" placeholder="write!"></textarea> 
                     </form> 
                     <ul style="list-style-type:none;">
                         <li th:each="message: ${messages}">
