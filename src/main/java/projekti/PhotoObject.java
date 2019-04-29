@@ -33,8 +33,8 @@ public class PhotoObject extends AbstractPersistable<Long> {
     @OneToMany(mappedBy = "photoObject")
     private List<Comment> comments = new ArrayList<>();
     
-    @Lob
+    //@Lob
 //    @Basic(fetch = FetchType.LAZY)
-    @Type(type="org.hibernate.type.BinaryType")
+    //@Type(type="org.hibernate.type.BinaryType")
     private byte[] content; 
 }
