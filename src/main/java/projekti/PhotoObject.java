@@ -34,7 +34,7 @@ public class PhotoObject extends AbstractPersistable<Long> {
     private List<Comment> comments = new ArrayList<>();
     
     @Lob
-    @Basic(fetch = FetchType.LAZY)
+//    @Basic(fetch = FetchType.LAZY)
     @Type(type="org.hibernate.type.BinaryType")
     private byte[] content; 
 }
