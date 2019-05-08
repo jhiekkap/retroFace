@@ -2,6 +2,7 @@
 package projekti;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,6 @@ public class Comment extends AbstractPersistable<Long>{
     @ManyToOne
     private Account receiver;
     
-    private LocalDate date;
+    private LocalDateTime date;
     private String content; 
 }

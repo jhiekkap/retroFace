@@ -2,6 +2,7 @@
 package projekti;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity; 
@@ -25,7 +26,7 @@ public class Message extends AbstractPersistable<Long>{
     @ManyToOne
     private Account receiver;
     
-    private LocalDate date;
+    private LocalDateTime date;
     private String content;
       
      

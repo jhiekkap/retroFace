@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/layout :: head(text='Home')"></head> 
     <body> 
-        <header th:replace="fragments/layout :: header"></header>
+        <header th:replace="fragments/layout :: userHeader"></header>
         <div class="all">
             <div class="left">
                 <div class="profilePhoto"> 
-                    <div th:if="${user.profilePhoto == null}"><span>No Profile Photo</span></div>
-                    <div th:if="${user.profilePhoto != null}"><img id="profilePic" th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/></div>  
-                    <p th:text="${user.name}" >My name</p>
+                    <p th:text="${user.name}" class="name">My name</p>
+                    <div th:if="${user.profilePhoto == null}"><span>NO PROFILE PHOTO</span></div>
+                    <div th:if="${user.profilePhoto != null}"><img id="profilePic" th:src="@{/photos/{id}/content (id=${user.profilePhoto.id})}"/></div>    
                 </div> 
                 <div class="friends">
                     <div th:if="${isLogged}"><h4>MY FRIENDS:</h4></div> 
-                        <div th:if="${isLogged != true}"><h3 th:text="${user.name} + '´s Friends:'"></h3></div>  
-                        <div th:if="${friends.empty}"><p>No Friends</p></div>
+                        <div th:if="${isLogged != true}"><h4 th:text="${user.name} + '´S FRIENDS:'" class="name"></h4></div>  
+                        <div th:if="${friends.empty}"><p>NO FRIENDS</p></div>
                             <ul style="list-style-type:none;">
                                 <li th:each="friend: ${friends}"> 
                                     <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
@@ -40,10 +40,10 @@
                 <div class="messages">
                     <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
                         <input type="submit" value="SEND MESSAGE"> <br/>
-                        <textarea rows="4" cols="25" name="content" form="usrform" placeholder="write!"></textarea> 
+                        <textarea rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea> 
                     </form> 
-                    <div style="list-style-type:none;">
-                        <div th:each="message: ${messages}">
+                    <ul style="list-style-type:none;">
+                        <li th:each="message: ${messages}">
                             <div class="message">  
                                 <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
                                     <div th:if="${!message.likes.empty}"><p th:text="${message.likes.size()} + ' LIKES'"></p></div> 
@@ -51,22 +51,22 @@
                                     <span th:text="${message.date}"></span> 
                                     <p th:text="${message.content}"></p> 
                                     <div class="comments">
-                                        <div  style="list-style-type:none;">
+                                        <ul  style="list-style-type:none;">
                                             <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
                                                 <label for="comment">Comment:</label>
                                                 <input type="text" name="content" id="comment"/> 
                                                 <input type="submit" value="SEND"/>
                                             </form>
-                                            <div th:each="comment: ${message.comments}">
+                                            <li th:each="comment: ${message.comments}">
                                                 <span th:text="${comment.sender.name}"></span>
                                                 <span th:text="${comment.date}"></span>
                                                 <p th:text="${comment.content}"></p> 
-                                            </div>
-                                        </div>
+                                            </li>
+                                        </ul>
                                     </div>
                             </div>    
-                        </div>
-                    </div> 
+                            </li>
+                    </ul> 
                  </div> 
             </div>
         </div>

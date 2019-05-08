@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/layout :: head(text='Photos')"></head>
     <body> 
-        <header th:replace="fragments/layout :: header"></header> 
+        <header th:replace="fragments/layout :: photosHeader"></header> 
         <div th:if="${isLogged}"><h3>MY PHOTOS:</h3></div> 
-            <div th:if="${isLogged != true}"><h3  th:text="${user.name} + '´s Photos:'"></h3></div>  
-                <div th:if="${photos.empty}"> <span>No photos</span></div> 
+            <div th:if="${isLogged != true}"><h4  th:text="${user.name} + '´S PHOTOS:'" class="name"></h4></div>  
+                <div th:if="${photos.empty}"> <span>NO PHOTOS</span></div> 
                     <div class="photos" th:if="${!photos.empty}">  
                         <ul th:each="photo: ${photos}" style="list-style-type:none;"> 
-                            <li class="photo"> 
-                                <img th:src="@{/photos/{id}/content(id=${photo.id})}"/> 
+                            <li > 
+                                <img class="photo" th:src="@{/photos/{id}/content(id=${photo.id})}"/> 
                                 <p th:text="${photo.title}"></p>  
                                 <form th:method="POST" th:action="@{/likePhoto/{id}/{profile}(id=${photo.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
                                     <div th:if="${!photo.likes.empty}"><p th:text="${photo.likes.size()} + ' LIKES'"></p></div> 
@@ -22,7 +22,7 @@
                                             <form th:method="POST" th:action="@{/commentsPhoto/{id}/by/{profile}(id=${photo.id}, profile=${user.profile})}" id="comment">                        
                                                 <label for="comment">Comment:</label>
                                                 <input type="text" name="content" id="comment"/> 
-                                                <input type="submit" value="Send"/>
+                                                <input type="submit" value="SEND"/>
                                             </form>
                                             <li th:each="comment: ${photo.comments}">
                                                 <span th:text="${comment.sender.name}"></span>
@@ -36,11 +36,11 @@
                 </div> 
                 <div th:if="${isLogged}">
                     <div th:if="${count < 10}"> 
-                        <p>Add more photos:</p> 
+                        <p>Add more photos (maximum permitted size of 1MB!):</p> 
                         <form method="POST" action="/photos" enctype="multipart/form-data"> 
                             <input type="file" name="file" id="file"/>
                             <input type="text" id="title" name="title" placeholder="title" >  
-                            <input type="submit" value="Add!"/>
+                            <input type="submit" value="ADD!"/>
                          </form>
                     </div>
                 </div> 

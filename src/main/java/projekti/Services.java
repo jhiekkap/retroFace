@@ -4,6 +4,7 @@ package projekti;
  
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -41,8 +42,7 @@ public class Services {
     private CommentRepository commentRepository; 
     @Autowired
     private LikeRepository likeRepository;
-    @Autowired
-    PasswordEncoder passwordEncoder;
+ 
     
     
     public  List<FriendRequest> getFriendRequests(){
@@ -60,6 +60,17 @@ public class Services {
             Collections.reverse(message.getComments());
         }
         return messages;
+    }
+    
+    public List<PhotoObject> getPhotos(String profile){
+        
+        List<PhotoObject> photos =  accountRepository.findByProfile(profile).getPhotos();
+        for(PhotoObject photo:photos){
+            photo.getComments().sort(Comparator.comparing(o -> o.getDate())); 
+            Collections.reverse(photo.getComments());
+        }
+        return photos;
+        
     }
      
     public List<Account> getOtherUsers(Account account){
@@ -125,7 +136,7 @@ public class Services {
         FriendRequest friendRequest = new FriendRequest();
         friendRequest.setRequester(getLoggedUser());
         friendRequest.setRequested(accountRepository.findByProfile(profile));
-        friendRequest.setDate(LocalDate.now());
+        friendRequest.setDate(LocalDateTime.now());
         friendRequestRepository.save(friendRequest);
         } 
     }
@@ -169,16 +180,7 @@ public class Services {
         accountRepository.save(account);
     }
     
-    public void signUp(String name, String username, String password, String profile){
-        
-        Account a = new Account(); 
-        a.setName(name); 
-        a.setUsername(username);
-        a.setPassword(passwordEncoder.encode(password)); 
-        a.setProfile(profile);
-        accountRepository.save(a); 
-    }
-    
+  
     public void writeMessageTo(String profile, String content){
         
         Message message = new Message();
@@ -187,7 +189,7 @@ public class Services {
         message.setSender(getLoggedUser());
         message.setReceiver(account);
         message.setContent(content);
-        message.setDate(LocalDate.now()); 
+        message.setDate(LocalDateTime.now()); 
 //        account.getMessages().add(message);
         messageRepository.save(message);
         messageRepository.findById(Long.MIN_VALUE); 
@@ -198,7 +200,7 @@ public class Services {
         Comment comment = new Comment();
         comment.setSender(getLoggedUser());
         comment.setReceiver(accountRepository.findByProfile(profile)); 
-        comment.setDate(LocalDate.now());
+        comment.setDate(LocalDateTime.now());
         comment.setContent(content);
         comment.setMessage(messageRepository.getOne(id));
            
@@ -215,7 +217,7 @@ public class Services {
         Comment comment = new Comment();
         comment.setSender(getLoggedUser());
         comment.setReceiver(accountRepository.findByProfile(profile)); 
-        comment.setDate(LocalDate.now());
+        comment.setDate(LocalDateTime.now());
         comment.setContent(content); 
         comment.setPhotoObject(photoRepository.getOne(id));
           

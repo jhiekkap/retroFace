@@ -8,21 +8,21 @@
         <link rel="stylesheet" th:href="@{/styles/style.css}"/>
     </head>
     <body>
-        <header th:fragment="header">
+        <header th:fragment="userHeader">
             <nav class="navbar navbar-expand-sm bg-light navbar-light navbar-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/logout}">LOG OUT</a>
                     </li>
                     <li class="nav-item">
-                        <a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">MY WALL</a>
-                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">WALL</a>
+                        <!--<a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">MY WALL</a>-->
+                        <!--<a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}"><span th:text="${user.name} + '´S WALL'"></span></a>-->
 
                     </li>                                                             
                     <li class="nav-item">
                         <!--<a class="nav-link" th:href="@{/photos}">PHOTOS</a>-->
                         <a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">MY PHOTOS</a>
-                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">PHOTOS</a>
+                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}"><span th:text="${user.name} + '´S PHOTOS'" class="name"></span></a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/find}">FIND</a>
@@ -31,11 +31,43 @@
                         <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
+                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">MY WALL</a>
                     </li> 
                 </ul>
             </nav>
         </header>
+        
+        <div th:fragment="photosHeader">
+            <nav class="navbar navbar-expand-sm bg-light navbar-light navbar-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/logout}">LOG OUT</a>
+                    </li>
+                     <li class="nav-item">
+                        <a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">MY WALL</a>
+                    </li> 
+                    <li class="nav-item">
+                        <!--<a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}">MY WALL</a>-->
+                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}(profile=${user.profile})}"><span th:text="${user.name} + '´S WALL'" class="name"></span></a>
+
+                    </li>                                                             
+                    <li class="nav-item">
+                        <!--<a class="nav-link" th:href="@{/photos}">PHOTOS</a>-->
+                        <!--<a th:if="${isLogged}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">MY PHOTOS</a>-->
+                        <!--<a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}/photos(profile=${user.profile})}">PHOTOS</a>-->
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/find}">FIND</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a th:if="${isLogged != true}" class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">MY WALL</a>
+                    </li> 
+                </ul>
+            </nav>
+        </div>
         
         <div th:fragment="navi">
             <nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -73,7 +105,7 @@
                         <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
+                        <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">MY WALL</a>
                     </li> 
                 </ul>
             </nav>
@@ -92,7 +124,7 @@
                         <a class="nav-link" th:href="@{/allUsers}">ALL USERS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">HOME</a>
+                        <a class="nav-link" th:href="@{/users/{profile}(profile=${loggedUser.profile})}">MY WALL</a>
                     </li> 
                 </ul>
             </nav>

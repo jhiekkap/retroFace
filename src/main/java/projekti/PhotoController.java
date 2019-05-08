@@ -36,8 +36,8 @@ public class PhotoController {
             @PathVariable String profile){
           
         model.addAttribute("loggedUser", services.getLoggedUser()); 
-        model.addAttribute("user", accountRepository.findByProfile(profile));
-        model.addAttribute("photos", accountRepository.findByProfile(profile).getPhotos()); 
+        model.addAttribute("user", accountRepository.findByProfile(profile)); 
+        model.addAttribute("photos", services.getPhotos(profile)); 
         model.addAttribute("count", accountRepository.findByProfile(profile).getPhotos().size());
         model.addAttribute("isLogged", services.isLoggedUser(accountRepository.findByProfile(profile)));
               
