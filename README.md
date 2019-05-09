@@ -3,9 +3,9 @@
 
 https://vast-springs-53157.herokuapp.com/ 
 
--Herokun versioon voi kirjautua Erkkinä (test/test)
+-Herokun versioon voi luoda uusia käyttäjiä, tai kirjautua suoraan Erkkinä (test/test)
 
-- Tämä Githubin versio toimii paikallisesti.
+- tämä Githubin versio toimii paikallisesti.
 
 
 retroFace - manuaali:
