@@ -3,7 +3,7 @@
 
 https://vast-springs-53157.herokuapp.com/ 
 
--Herokun versioon voi kirjautau Erkkinä (test/test)
+-Herokun versioon voi kirjautua Erkkinä (test/test)
 
 - Tämä Githubin versio toimii paikallisesti.
 
