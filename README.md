@@ -1,5 +1,7 @@
 # retroFace
 
+localhost:8080
+tai
 
 https://vast-springs-53157.herokuapp.com/ 
 
