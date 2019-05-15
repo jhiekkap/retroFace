@@ -7,7 +7,7 @@ body {
 } 
 
 header {
-    margin-left: auto;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -29,12 +29,12 @@ header {
 
 .photos {
      max-width: 400px;
-     background-color: yellow;
+     
 }
 
 .pic {
      max-width: 100%;
-     background-color: hotpink;
+    
      foat:left;  
 }
  
