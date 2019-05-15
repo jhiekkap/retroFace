@@ -29,10 +29,13 @@ header {
 
 .photos {
      max-width: 400px;
+     background-color: yellow;
 }
 
 .pic {
-     max-width: 100%
+     max-width: 100%;
+     background-color: hotpink;
+     foat:left;  
 }
  
 #profilePic {
