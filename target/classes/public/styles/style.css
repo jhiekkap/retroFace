@@ -1,14 +1,13 @@
 body {
   background-color: whitesmoke;
   padding: 10px;
-  
   border-style: ridge;
   border-color: lightgray; 
   border-radius: 10px;
 } 
 
 header {
-    margin-left: auto;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -17,7 +16,7 @@ header {
    
 }
  
-.photos , .photo, .profilePhoto, .friends, .friendRequests, .messages,.message,.comments {
+.photos , .photo,.pic, .profilePhoto, .friends, .friendRequests, .messages,.message,.comments {
   background-color: white;
   padding: 20px;
   margin-top:10px;
@@ -26,8 +25,17 @@ header {
   width:100%;
 }
 
+
+
 .photos {
-    max-width: 400px;
+     max-width: 400px;
+     
+}
+
+.pic {
+     max-width: 100%;
+    
+     foat:left;  
 }
  
 #profilePic {
@@ -44,6 +52,7 @@ header {
   float: left;
   width: 70%;
   padding: 15px;
+  
 }
 
 @media screen and (max-width:600px) {
@@ -68,7 +77,8 @@ max-width: 460px;
 }
 .comments{
     overflow: auto;
-    max-height: 200px;
+    height: 140px;
+    
 }
 .comment {
     width: 100%;
@@ -76,7 +86,7 @@ max-width: 460px;
 .writeMessage {
    background-color: white;
    padding: 20px;
-   margin-left:30px; 
+   width:100%;
 }
 .name {
    text-transform: uppercase; 

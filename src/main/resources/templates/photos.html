@@ -7,8 +7,8 @@
             <div th:if="${isLogged != true}"><h4  th:text="${user.name} + '´S PHOTOS:'" class="name"></h4></div>  
                 <div th:if="${photos.empty}"> <span>NO PHOTOS</span></div> 
                     <div class="photos" th:if="${!photos.empty}">  
-                        <ul th:each="photo: ${photos}" style="list-style-type:none;"> 
-                            <li > 
+                        <div th:each="photo: ${photos}"> 
+                            <div class="pic"> 
                                 <img class="photo" th:src="@{/photos/{id}/content(id=${photo.id})}"/> 
                                 <p th:text="${photo.title}"></p>  
                                 <form th:method="POST" th:action="@{/likePhoto/{id}/{profile}(id=${photo.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
@@ -18,21 +18,21 @@
                                         <form th:action="@{/users/{profile}/photos/{id}(profile=${user.profile}, id=${photo.id})}" th:method="POST"><input type="submit" value="Set Profile Photo"/></form>                    
                                     </div> 
                                     <div class="comments">
-                                        <ul  style="list-style-type:none;">
+                                        <div>
                                             <form th:method="POST" th:action="@{/commentsPhoto/{id}/by/{profile}(id=${photo.id}, profile=${user.profile})}" id="comment">                        
                                                 <label for="comment">Comment:</label>
                                                 <input type="text" name="content" id="comment"/> 
                                                 <input type="submit" value="SEND"/>
                                             </form>
-                                            <li th:each="comment: ${photo.comments}">
+                                            <div th:each="comment: ${photo.comments}">
                                                 <span th:text="${comment.sender.name}"></span>
                                                 <span th:text="${comment.date}"></span>
                                                 <p th:text="${comment.content}"></p> 
-                                            </li>
-                                        </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                            </li> 
-                        </ul>
+                            </div> 
+                        </div>
                 </div> 
                 <div th:if="${isLogged}">
                     <div th:if="${count < 10}"> 
