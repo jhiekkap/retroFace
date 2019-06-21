@@ -37,13 +37,20 @@
                 </div> 
             </div>
             <div class="right">
-                <div class="messages">
-                    <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
-                        <input type="submit" value="SEND MESSAGE"> <br/>
-                        <textarea rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea> 
-                    </form> 
+                <div   class="messages"> 
+                         <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
+                          
+                        <input type="submit" value="SEND MESSAGE"> <br/>   
+                            <textarea id="viesti" rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea> 
+                        </form> 
                     <div>
                         <div th:each="message: ${messages}">
+<!--                            <script th:inline="javascript"> 
+                            var x = [[${message.sender.name}]]; 
+                            var y = [[${message.sender.likes.size()}]]; 
+                            console.log(x, y);
+                                </script>-->
+                            
                             <div class="message">  
                                 <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
                                     <div th:if="${!message.likes.empty}"><p th:text="${message.likes.size()} + ' LIKES'"></p></div> 
@@ -70,5 +77,13 @@
                  </div> 
             </div>
         </div>
+        
+<!--         <script>
+            function hello(){
+                document.getElementById("viesti").value = "hello"
+            }
+            document.getElementById("viesti").addEventListener("click", hello());
+//            var text = document.getElementById("viesti").value
+        </script>-->
     </body>
 </html>
