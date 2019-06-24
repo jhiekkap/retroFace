@@ -1,8 +1,10 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragments/layout :: head(text='Home')"></head> 
+    <head th:replace="fragments/layout :: head(text='Home')"></head>
+
     <body> 
         <header th:replace="fragments/layout :: userHeader"></header>
+        <button onclick="sayHello()">Paina tästä</button>
         <div class="all">
             <div class="left">
                 <div class="profilePhoto"> 
@@ -12,14 +14,14 @@
                 </div> 
                 <div class="friends">
                     <div th:if="${isLogged}"><h4>MY FRIENDS:</h4></div> 
-                        <div th:if="${isLogged != true}"><h4 th:text="${user.name} + '´S FRIENDS:'" class="name"></h4></div>  
-                        <div th:if="${friends.empty}"><p>NO FRIENDS</p></div>
-                            <div>
-                                <div th:each="friend: ${friends}"> 
-                                    <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
-                                    <div th:if="${isLogged}"><form th:method="POST" th:action="@{/removeFriend2/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE"/></form></div>   
-                                </div>
-                            </div> 
+                    <div th:if="${isLogged != true}"><h4 th:text="${user.name} + '´S FRIENDS:'" class="name"></h4></div>  
+                    <div th:if="${friends.empty}"><p>NO FRIENDS</p></div>
+                    <div>
+                        <div th:each="friend: ${friends}"> 
+                            <a th:href="@{/users/{profile}(profile=${friend.profile})}" th:text="${friend.name}"></a> 
+                            <div th:if="${isLogged}"><form th:method="POST" th:action="@{/removeFriend2/{profile}(profile=${friend.profile})}"><input type="submit" value="REMOVE"/></form></div>   
+                        </div>
+                    </div> 
                 </div>
                 <div th:if="${!friendRequests.empty}" class="friendRequests">
                     <div th:if="${isLogged}">
@@ -37,53 +39,57 @@
                 </div> 
             </div>
             <div class="right">
-                <div   class="messages"> 
-                         <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">
-                          
-                        <input type="submit" value="SEND MESSAGE"> <br/>   
-                            <textarea id="viesti" rows="4" cols="38" name="content" form="usrform" placeholder="write!"></textarea> 
-                        </form> 
-                    <div>
-                        <div th:each="message: ${messages}">
-<!--                            <script th:inline="javascript"> 
-                            var x = [[${message.sender.name}]]; 
-                            var y = [[${message.sender.likes.size()}]]; 
-                            console.log(x, y);
-                                </script>-->
-                            
-                            <div class="message">  
-                                <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
-                                    <div th:if="${!message.likes.empty}"><p th:text="${message.likes.size()} + ' LIKES'"></p></div> 
-                                    <span th:text="${message.sender.name}"></span>
-                                    <span th:text="${message.date}"></span> 
-                                    <p th:text="${message.content}"></p> 
-                                    <div class="comments">
-                                        <div>
-                                            <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
-                                                <label for="comment">Comment:</label>
-                                                <input type="text" name="content" id="comment"/> 
-                                                <input type="submit" value="SEND"/>
-                                            </form>
-                                            <div th:each="comment: ${message.comments}">
-                                                <span th:text="${comment.sender.name}"></span>
-                                                <span th:text="${comment.date}"></span>
-                                                <p th:text="${comment.content}"></p> 
-                                            </div>
-                                        </div>
+
+                <div id="writeMesage"> 
+                    <form  class="writeMessage" th:method="POST" th:action="@{/writeMessageTo/{profile}(profile=${user.profile})}" id="usrform">             
+                        <input type="submit" value="SEND MESSAGE"> <br/> 
+                            <textarea id="viesti" rows="4" cols="38" name="content" form="usrform" placeholder="write!" ></textarea>
+                    </form> 
+
+                    <textarea id="mesage" rows="2" cols="38" name="contentti" placeholder="kirjoota!"></textarea>                  
+                    <button th:onclick="messageWrite([[${user.profile}]])">LÄHETÄ</button>
+                     
+
+                </div>      
+
+
+                <div id="messages" class="messages">
+                    <div th:each="message: ${messages}">  
+                        <div class="message">  
+
+                            <form th:method="POST" th:action="@{/likeMessage/{id}/{profile}(id=${message.id},profile=${user.profile})}"><input type="submit" value="LIKE"/></form> 
+
+                            <button th:onclick="likeMessage([[${message.id}]], [[${user.profile}]])">LIKETÄ<span  th:if="${!message.likes.empty}"><span th:text=" ${message.likes.size()}"></span></span></button>
+
+                            <div th:if="${!message.likes.empty}"><p th:text="${message.likes.size()} + ' LIKES'"></p></div> 
+                            <span th:text="${message.sender.name}"></span>
+                            <span th:text="${message.date}"></span> 
+                            <p th:text="${message.content}"></p> 
+                            <div class="comments">
+                                <div>
+                                    <form th:method="POST" th:action="@{/commentsMessage/{id}/by/{profile}(id=${message.id}, profile=${user.profile})}" id="comment">                        
+                                        <label for="comment">Comment:</label>
+                                        <input type="text" name="content" id="comment"/> 
+                                        <input type="submit" value="SEND"/>
+                                    </form>
+
+                                    <input type="text" name ="commentti" id="commentti"/>
+                                    <button th:onclick="commentMessage([[${message.id}]], [[${user.profile}]])">COMMENTOI</button>
+
+                                    <div th:each="comment: ${message.comments}">
+                                        <span th:text="${comment.sender.name}"></span>
+                                        <span th:text="${comment.date}"></span>
+                                        <p th:text="${comment.content}"></p> 
                                     </div>
-                            </div>    
-                        </div>
-                    </div> 
-                 </div> 
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div> 
+
             </div>
         </div>
-        
-<!--         <script>
-            function hello(){
-                document.getElementById("viesti").value = "hello"
-            }
-            document.getElementById("viesti").addEventListener("click", hello());
-//            var text = document.getElementById("viesti").value
-        </script>-->
+        <script th:src="@{/javascript/code.js}" defer></script>
+
     </body>
 </html>
