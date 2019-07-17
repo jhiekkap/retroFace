@@ -1,5 +1,10 @@
 # retroFace
 
+
+Helsingin Yliopiston Java-Palvelinohjelmointi-MOOCin lopputyö 
+"vanhan ajan facebook" - Java Spring  & Thymeleaf
+
+
 localhost:8080
 tai
 
