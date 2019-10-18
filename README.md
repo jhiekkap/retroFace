@@ -1,8 +1,8 @@
-# retroFace
+# retroFace - Java Spring Boot, Thymeleaf, H2 / PostgreSQL
 
 
-Helsingin Yliopiston Java-Palvelinohjelmointi-MOOCin lopputyö 
-"vanhan ajan facebook" - Java Spring  & Thymeleaf
+Helsingin Yliopiston Java-Palvelinohjelmointi - MOOCin lopputyö 
+"vanhan ajan facebook"  
 
 
 localhost:8080
